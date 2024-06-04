@@ -2,8 +2,9 @@ source "https://rubygems.org"
 
 ruby "3.1.2"
 
-#added by us
+#added by us (team)
 gem "devise"
+gem "cloudinary"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.1.3", ">= 7.1.3.3"
