@@ -1,13 +1,17 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: [:show, :edit, :update, :destroy]
+  # before_action :set_event, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
+    @backCounter = 0
+    @events = Event.all
+    @vaults = Vault.all
+    @users = User.all
+    @donations = Donation.all
   end
 
   def show
     @events = Event.all
-
   end
 
   def new
@@ -26,6 +30,12 @@ class EventsController < ApplicationController
     end
   end
 
+  def update
+  end
+
+  def destroy
+  end
+
   private
 
   def set_event
@@ -33,7 +43,7 @@ class EventsController < ApplicationController
   end
 
   # Only allow a list of trusted parameters through.
-  def item_params
+  def event_params
     params.require(:event).permit(:name, :price, :description, :category, :photo)
   end
 
