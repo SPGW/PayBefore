@@ -1,6 +1,7 @@
 
 
 <div class="container">
+<h1>Pay Before</h1>
 <p>
 Everyone needs help at some point, just  not at the same time.
 
@@ -13,16 +14,6 @@ PayBefore helps anyone who wants to regain control of their financial well-being
 
 <div>
 
+<%= render partial: "vaults/vaults" %>
 
-
-<div <% @vaults.each do |vault| %>>
-  <div class="progress" role="progressbar" aria-label="Success example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
-      <div> <h4> <%=  vault.name %> </h4></div>
-          <div><p>Goal: <%= vault.donation_amount %></p></div>
-          <div><p>current donation: <%= vault.current_amount_vault %></p></div>
-          <div class="progress-bar bg-success text-dark" style="width: 25%">25%</div>
-        </div>
-      </div>
-    <% end %>
-  </div>
 </div>
