@@ -1,0 +1,15 @@
+.indexGridContainer{
+display: inline-grid;;
+--min-grid-absolute-size: 12rem;
+  --max-grid-relative-size: 20%;
+  grid-template-columns: auto auto auto auto;
+}
+
+
+.mainIndexCard{
+ height:500px;
+ width:250px;
+ padding: 10px;
+ border: black solid 2px;
+ margin:5px;
+}
