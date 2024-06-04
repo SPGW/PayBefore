@@ -1,2 +1,28 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+
+
+<div class="container">
+<p>
+Everyone needs help at some point, just  not at the same time.
+
+PayBefore is dedicated to help those who find themselves trapped in a negative circle of financial obligations.
+
+A large percent of the population worldwide struggle with unpaid bills at the end of the month. Not due to lack of effort but simply because of financial need. The core mission of this project is to help those who need help the most by building a bridge between anonymous people.
+
+
+PayBefore helps anyone who wants to regain control of their financial well-being with donations from strangers.</p>
+
+<div>
+
+
+
+<div <% @vaults.each do |vault| %>>
+  <div class="progress" role="progressbar" aria-label="Success example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+      <div> <h4> <%=  vault.name %> </h4></div>
+          <div><p>Goal: <%= vault.donation_amount %></p></div>
+          <div><p>current donation: <%= vault.current_amount_vault %></p></div>
+          <div class="progress-bar bg-success text-dark" style="width: 25%">25%</div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
