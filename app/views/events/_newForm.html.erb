@@ -1,0 +1,30 @@
+<div class="container">
+  <h1>New event</h1>
+
+  <%= simple_form_for event do |e| %>
+    <div class="raw main">
+        <%= e.input :name, hint: 'give a descriptive name' %>
+    </div>
+
+    <div class="raw main">
+      <%= e.input :goal_amount, hint: 'the amount of money you would like to raise' %>
+    </div>
+
+    <div class="raw main">
+      <%= e.input :description, hint: 'describe why you are creating this raising event' %>
+    </div>
+
+    <div class="raw main">
+      <%= e.input :location, hint: 'location of the event' %>
+    </div>
+
+
+    <div class="raw main">
+      <%= e.input :vault_id, collection: @vaults, hint: 'Housing, Medical or Education', value_method: :id %>
+    </div>
+
+        <%= e.submit  %>
+    </div>
+  <% end %>
+
+</div>

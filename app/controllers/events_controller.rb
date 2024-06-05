@@ -16,6 +16,7 @@ class EventsController < ApplicationController
   end
 
   def new
+    @vaults = Vault.all
     @event = Event.new
   end
 
@@ -26,7 +27,7 @@ class EventsController < ApplicationController
       if @event.save
         redirect_to event_path(@event)
       else
-        redirect_to new_user_session_path, notice: 'You are not logged in buddy.'
+        render :new, notice: 'hey guy the form is not correct.'
       end
     end
   end
@@ -45,7 +46,7 @@ class EventsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def event_params
-    params.require(:event).permit(:name, :price, :description, :category, :photo)
+    params.require(:event).permit(:name, :location, :description, :picture, :goal_amount, :vault_id)
   end
 
 end
