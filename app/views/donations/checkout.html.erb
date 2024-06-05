@@ -3,11 +3,11 @@
 <br>
 <div data-controller="checkout" data-checkout-secret-value= '<%= @donation.payment_intent_id %>' data-checkout-key-value="<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>">
   <form id="payment-form">
-  <div id="payment-element">
+  <div id="payment-element" data-checkout-target='payment'>
     <!-- Elements will create form elements here -->
   </div>
-  <button id="submit">Submit</button>
-  <div id="error-message">
+  <button id="submit" data-checkout-target='submit'>Submit</button>
+  <div id="error-message" data-checkout-target='error'>
     <!-- Display error message to your customers here -->
   </div>
 </form>
