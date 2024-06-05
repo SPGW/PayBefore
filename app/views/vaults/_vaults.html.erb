@@ -5,7 +5,7 @@
       <div> <h4> <%=  vault.name %> </h4></div>
           <div><p>Goal: <%= vault.donation_amount %></p></div>
           <div><p>current donation: <%= vault.current_amount_vault %></p></div>
-          <div class="progress-bar bg-success text-dark" style="width: <%= vault.current_amount_vault/vault.donation_amount %>%"><%= 5+5%>%</div>
+          <div class="progress-bar bg-success text-dark" style="width: <%= vault.current_amount_vault/vault.donation_amount %>%"></div>
         </div>
       </div>
     <% end %>
