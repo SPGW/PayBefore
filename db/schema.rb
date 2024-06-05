@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_04_125220) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_05_193158) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -66,7 +66,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_04_125220) do
   create_table "events", force: :cascade do |t|
     t.float "goal_amount"
     t.float "current_amount"
-    t.string "picture"
+    t.string "photo"
     t.text "description"
     t.string "location"
     t.bigint "vault_id", null: false
