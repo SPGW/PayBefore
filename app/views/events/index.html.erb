@@ -1,18 +1,12 @@
 <% counter = 250 %>
-
-
 <h1>Index</h1>
+
 <div>
-  <% specific_vault_cat1 = @vaults.find(1) %>
-  <% specific_vault_cat2 = @vaults.find(2) %>
-  <% specific_vault_cat3 = @vaults.find(3) %>
-  <h1><%= specific_vault_cat1.name %> vault current amount:   <%=  specific_vault_cat1.current_amount_vault.to_i %>€</h1>
-  <h1>  <%= specific_vault_cat2.name %> vault current amount:   <%=  specific_vault_cat2.current_amount_vault.to_i %>€</h1>
-  <h1>  <%= specific_vault_cat3.name %> vault current amount:   <%=  specific_vault_cat3.current_amount_vault.to_i %>€</h1>
+  <% @vaults.each do |v| %>
+    <h1><%= v.name %> vault current amount:   <%=  v.current_amount_vault.to_i %>€</h1>
+  <% end %>
 </div>
 
-
-<hr>
 <div>
   <button style="background-color:black;color:white">Create an event</button>
 </div>
@@ -25,9 +19,7 @@
         <p>Location: <%= event.location %></p>
        <% specific_vault = @vaults.find(event.vault_id) %>
       <h5>Vault: <%= specific_vault.name %></h5>
-
   </div>
      <% counter -= 15 %>
     <% end %>
-
 </div>
