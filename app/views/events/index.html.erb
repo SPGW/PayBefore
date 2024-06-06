@@ -3,24 +3,29 @@
 
   <div class="vaultFlexParent">
     <% @vaults.each do |v| %>
-    <div class="vaultFlexChild">
-      <h1><%= v.name %> vault: <%=  v.current_amount_vault.to_i %>€</h1>
-      </div>
+    <div class="rounded-pill vaultFlexChild">
+      <button style="width:100%;" class="rounded-pill">
+      <span class="text-muted"><%= v.name %> vault: <%=  v.current_amount_vault.to_i %>€</span>
+     </div>
     <% end %>
   </div>
-  <hr>
-  <div  >
-    <button id="createEventButton">Create an event</button>
-  </div>
-  <hr>
+
+  <div class="home-btn d-flex justify-content-center align-items-center">
+    <button style="width:100%;" class="rounded-pill createEventButton">
+    <span class="text-muted">Create an event</span>
+    <svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12 5l7 7-7 7"/></svg></button>
+</div>
 
 
-  <div  class="indexGridContainer">
+
+
+  <div  class="indexGridContainer shadow">
       <% @events.each do |event| %>
       <%= link_to event, :style=>'color: black;', :action => 'go' do %>
+
       <div class="mainIndexCard" style="background-image: linear-gradient(rgba(0,0,0,0.15), rgba(255,255,255,1)),
       url('<%= cl_image_path event.photo.key, height: 320, crop: :scale %>')"
-                     >
+      >
         <div id="cardTitle">
           <h3>Event: <strong><%= event.name %></strong></h3>
         </div>
@@ -38,5 +43,4 @@
       <% end %>
           <% end %>
   </div>
-
 </div>
