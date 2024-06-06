@@ -1,27 +1,42 @@
-<% counter = 250 %>
-<h1>Index</h1>
+<div class= "parentDiv">
+  <h1>Index</h1>
 
-<div>
-  <% @vaults.each do |v| %>
-    <h1><%= v.name %> vault current amount:   <%=  v.current_amount_vault.to_i %>€</h1>
-  <% end %>
-</div>
-
-<div>
-  <button style="background-color:black;color:white">Create an event</button>
-</div>
-
-
-
-<div class="indexGridContainer">
-  <% @events.each do |event| %>
-  <div style="background-color: rgb(<%= counter %>, 0, 0,0.1)  "class="mainIndexCard">
-        <h3>Event: <%= event.name %></h3>
-        <h2>Goal amount: <%= event.goal_amount %></h2>
-        <p>Location: <%= event.location %></p>
-       <% specific_vault = @vaults.find(event.vault_id) %>
-      <h5>Vault: <%= specific_vault.name %></h5>
-  </div>
-     <% counter -= 15 %>
+  <div class="vaultFlexParent">
+    <% @vaults.each do |v| %>
+    <div class="vaultFlexChild">
+      <h1><%= v.name %> vault: <%=  v.current_amount_vault.to_i %>€</h1>
+      </div>
     <% end %>
+  </div>
+  <hr>
+  <div  >
+    <button id="createEventButton">Create an event</button>
+  </div>
+  <hr>
+
+
+  <div  class="indexGridContainer">
+      <% @events.each do |event| %>
+      <%= link_to event, :style=>'color: black;', :action => 'go' do %>
+      <div class="mainIndexCard" style="background-image: linear-gradient(rgba(0,0,0,0.15), rgba(255,255,255,1)),
+      url('<%= cl_image_path event.photo.key, height: 320, crop: :scale %>')"
+                     >
+        <div id="cardTitle">
+          <h3>Event: <strong><%= event.name %></strong></h3>
+        </div>
+        <div class="mainIndexCardContent">
+
+          <h4>Goal amount: <strong><%= event.goal_amount.to_i %>€</strong></h4>
+          <% specific_vault = @vaults.find(event.vault_id) %>
+          <h4>Vault: <strong><%= specific_vault.name %></strong></h4>
+            <h5>Location: <strong><%= event.location %></strong></h5>
+            <% userIndex = @users.find( event.user_id) %>
+            <h6><%= userIndex.first_name %> <%= userIndex.last_name %></h6>
+        </div>
+      </div>
+
+      <% end %>
+          <% end %>
+  </div>
+
 </div>
