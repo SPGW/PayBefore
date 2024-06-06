@@ -3,7 +3,7 @@
 
   <%= simple_form_for event do |e| %>
     <div class="raw main">
-        <%= e.input :name, hint: 'give a descriptive name' %>
+        <%= e.input :name, hint: 'please give a descriptive name for your event' %>
     </div>
 
     <div class="raw main">
@@ -16,6 +16,10 @@
 
     <div class="raw main">
       <%= e.input :location, hint: 'location of the event' %>
+    </div>
+
+    <div class="col-5">
+      <%= e.input :photo, as: :file %>
     </div>
 
 
