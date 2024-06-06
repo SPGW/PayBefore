@@ -9,5 +9,9 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
-  resources :events,  only: [:index, :new, :create, :show]
+  resources :events, only: [:index, :new, :create, :show]
+  resources :donations, only: [:create]
+
+  # get '/donations/create/:amount', to: 'donations#create'
+  get '/donations/checkout/:id', to: 'donations#checkout', as: 'donation_checkout'
 end

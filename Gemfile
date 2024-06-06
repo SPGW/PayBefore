@@ -79,3 +79,6 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+# stripe gem
+  gem "stripe"

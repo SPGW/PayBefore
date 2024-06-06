@@ -9,3 +9,9 @@
       </div>
   </div>
 </div>
+
+
+  <%= simple_form_for @donation do |f| %>
+    <%= f.input :contribution %>
+    <%= f.submit "submit", class: "btn btn-sm btn-primary btn-block mt-2" %>
+  <% end %>
