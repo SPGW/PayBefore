@@ -4,7 +4,7 @@ class EventsController < ApplicationController
 
   def index
     @backCounter = 0
-    @events = Event.all
+    @events = Event.all.order(:created_at)
     @vaults = Vault.all
     @users = User.all
     @donations = Donation.all
@@ -13,6 +13,7 @@ class EventsController < ApplicationController
   def show
     @events = Event.all
     @event = Event.find(params[:id])
+    @donation = Donation.new
   end
 
   def new

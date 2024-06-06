@@ -9,4 +9,13 @@
 <p>current_amount:<%= @event.current_amount %></p>
 <p>picture: <%= @event.photo %></p>
 </div>
+
+
+
+
+  <%= simple_form_for @donation do |f| %>
+    <%= f.hidden_field :event_id, value: @event.id %>
+    <%= f.input :contribution %>
+    <%= f.submit "submit", class: "btn btn-sm btn-primary btn-block mt-2" %>
+  <% end %>
 </div>
