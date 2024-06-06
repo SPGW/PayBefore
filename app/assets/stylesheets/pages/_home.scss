@@ -7,22 +7,26 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'Inter', sans-serif;
 }
 
+h1 {
+  font-size: 3.75rem;
+  line-height: 1;
+}
+
 p{
   font-family: "Roboto", sans-serif;
   color: #6c6f8a;
 }
 
-
-
 .home-view {
-  height: 100vh;
-  background-color: aqua;
+  // height: 100vh;
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 
 button {
   display: flex;
   height: 3em;
-  width: 110px;
+  width: 150px;
   align-items: center;
   justify-content: center;
   background-color: #eeeeee4b;
@@ -31,7 +35,7 @@ button {
   transition: all 0.2s linear;
   cursor: pointer;
   border: none;
-  background: #fff;
+  background: $blue;
  }
 
  button > svg {
@@ -49,4 +53,14 @@ button {
  button:hover {
   box-shadow: 9px 9px 33px #d1d1d1, -9px -9px 33px #ffffff;
   transform: translateY(2px);
+ }
+
+ .item-mission{
+  box-shadow: 0 0.5px 1px rgba(103, 50, 248, 0.283);
+  border-radius: 10px;
+  padding: 25px;
+ }
+
+ .progress-bar{
+  color: #6c6f8a;
  }
