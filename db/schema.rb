@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_05_193158) do
+
+ActiveRecord::Schema[7.1].define(version: 2024_06_06_122446) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -60,6 +62,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_05_193158) do
     t.datetime "updated_at", null: false
     t.string "payment_intent_id"
     t.boolean "is_complete", default: false, null: false
+    t.string "status", default: "", null: false
     t.index ["event_id"], name: "index_donations_on_event_id"
     t.index ["user_id"], name: "index_donations_on_user_id"
     t.index ["vault_id"], name: "index_donations_on_vault_id"

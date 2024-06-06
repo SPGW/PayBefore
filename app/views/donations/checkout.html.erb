@@ -1,8 +1,8 @@
 <br>
 <br>
 <br>
-<div data-controller="checkout" data-checkout-secret-value= '<%= @donation.payment_intent_id %>' data-checkout-key-value="<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>">
-  <form id="payment-form">
+<div data-controller="checkout" data-checkout-id-value='<%= @donation.id %>' data-checkout-secret-value= '<%= @donation.payment_intent_id %>' data-checkout-key-value="<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>">
+  <form id="payment-form" data-checkout-target = 'form' data-action = 'submit->checkout#submit'>
   <div id="payment-element" data-checkout-target='payment'>
     <!-- Elements will create form elements here -->
   </div>
