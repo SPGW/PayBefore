@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_04_125220) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_05_144352) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -54,10 +54,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_04_125220) do
   create_table "donations", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.float "contribution"
-    t.bigint "event_id", null: false
-    t.bigint "vault_id", null: false
+    t.integer "event_id"
+    t.integer "vault_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "payment_intent_id"
+    t.boolean "is_complete", default: false, null: false
     t.index ["event_id"], name: "index_donations_on_event_id"
     t.index ["user_id"], name: "index_donations_on_user_id"
     t.index ["vault_id"], name: "index_donations_on_vault_id"
