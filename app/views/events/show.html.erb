@@ -1,12 +1,29 @@
+<div class="parentDiv">
+  <div style="height:130px;">
+    <hr>
+  </div>
 
-<div class="container mt-5">
-<div class="p-5">
-<h1>HELLO WORLD</h1>
-<h2>name:<%= @event.name %></h2>
-<p>description:<%= @event.description %></p>
-<p>location:<%= @event.location %></p>
-<p>goal_amount:<%= @event.goal_amount %></p>
-<p>current_amount:<%= @event.current_amount %></p>
-<p>picture: <%= @event.photo %></p>
-</div>
+  <div class="home-btn d-flex justify-content-center align-items-center">
+    <button  class="rounded-pill showIntroDiv">
+    <span  class="text-muted">Event:   <strong><%= @event.name %></strong></span>
+    <svg xmlns="http://www.w3.org/2000/svg" height="16" width="32" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12 5l7 7-7 7"/></svg></button>
+  </div>
+
+
+  <div class="home-btn showFlexParent ">
+
+    <div class="text-muted showFlexChild shadow">
+      <h2>Goal amount: <strong><%= @event.goal_amount.to_i %>€</strong></h2>
+      <% userIndex = @users.find( @event.user_id) %>
+      <h6>Organizer: <strong><%= userIndex.first_name %> <%= userIndex.last_name %></strong></h6>
+      <p>Current_amount: <%= @event.current_amount.to_i %>€</p>
+      <p>Description: <strong><%= @event.description %></strong></p>
+      <%= cl_image_tag @event.photo.key, height: 300, width: 400, crop: :fill, class: "photo" %>
+    </div>
+
+    <div class="text-muted showFlexChild shadow">
+        <h2>Location: <strong> <%= @event.location %> </strong></h2>
+    </div>
+
+  </div>
 </div>

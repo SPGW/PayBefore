@@ -11,8 +11,10 @@ class EventsController < ApplicationController
   end
 
   def show
-    @events = Event.all
     @event = Event.find(params[:id])
+    # @events = Event.all
+    @users = User.all
+    # @vaults = Vault.all
   end
 
   def new
