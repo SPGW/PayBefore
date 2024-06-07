@@ -1,17 +1,19 @@
 <div class= "parentDiv">
-  <h1>Index</h1>
+<br>
+<br>
+<br>
 
   <div class="vaultFlexParent">
     <% @vaults.each do |v| %>
     <div class="rounded-pill vaultFlexChild">
-      <button style="width:100%;" class="rounded-pill">
+      <button style="width:100%;" class="rounded-pill bg-light">
       <span class="text-muted"><%= v.name %> vault: <%=  v.current_amount_vault.to_i %>€</span>
-     </div>
+    </div>
     <% end %>
   </div>
 
   <div class="home-btn d-flex justify-content-center align-items-center">
-    <button style="width:100%;" class="rounded-pill createEventButton">
+    <button style="width:100%;" class="rounded-pill createEventButton bg-light">
     <span class="text-muted">Create an event</span>
     <svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12 5l7 7-7 7"/></svg></button>
 </div>
