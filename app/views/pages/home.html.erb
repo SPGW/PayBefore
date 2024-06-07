@@ -1,39 +1,38 @@
 
+  <div class="container" style="margin-top: 100px">
+    <div class="home-view">
+      <div class="text-center">
+        <%# Banner %>
+        <div class="p-5">
+          <h1>Pay Before</h1>
+          <p class="pt-5">
+            Need Financial Assistance? Share your story and receive the support you need.
+          </p>
 
-<div class="container" style="margin-top: 100px">
-  <div class="home-view">
-    <div class="text-center">
-      <%# Banner %>
-      <div class="p-5">
-        <h1>Pay Before</h1>
-        <p class="pt-5">
-          Need Financial Assistance? Share your story and receive the support you need.
-        </p>
+        </div>
 
+        <%# Button %>
+        <div class="home-btn d-flex justify-content-center align-items-center">
+          <%= link_to events_path, class: "text-decoration-none" do %>
+          <button class="border rounded-pill">
+          <span>Events</span>
+          <svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12 5l7 7-7 7"/></svg></button>
+        <% end %>
+        </div>
       </div>
 
-      <%# Button %>
-      <div class="home-btn d-flex justify-content-center align-items-center">
-        <%= link_to events_path, class: "text-decoration-none" do %>
-        <button class="border rounded-pill">
-        <span>Events</span>
-        <svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12 5l7 7-7 7"/></svg></button>
-      <% end %>
+      <%# Mission %>
+      <div class="item-mission rounded-lg m-5">
+        <div clas="d-flex align-items-end">
+          <h2 class="mt-3 mb-3">Mission</h2>
+          <p>A large percent of the population worldwide struggle with unpaid bills at the end of the month. At Paybefore we aim to build a bridge between those in need and anonymous donors. </p>
+        </div>
       </div>
     </div>
 
-    <%# Mission %>
-    <div class="item-mission rounded-lg m-5">
-      <div clas="d-flex align-items-end">
-        <h2 class="mt-3 mb-3">Mission</h2>
-        <p>A large percent of the population worldwide struggle with unpaid bills at the end of the month. At Paybefore we aim to build a bridge between those in need and anonymous donors. </p>
-      </div>
+    <%# Vaults %>
+    <div>
+      <%= render partial: "vaults/vaults" %>
     </div>
-  </div>
 
-  <%# Vaults %>
-  <div>
-    <%= render partial: "vaults/vaults" %>
   </div>
-
-</div>
