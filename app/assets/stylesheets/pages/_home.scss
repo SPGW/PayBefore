@@ -35,7 +35,7 @@ button {
   transition: all 0.2s linear;
   cursor: pointer;
   border: none;
-  background: $blue;
+
  }
 
  button > svg {
@@ -64,3 +64,17 @@ button {
  .progress-bar{
   color: #6c6f8a;
  }
+
+ a {
+  color: inherit; /* Inherit the color from the parent element */
+  text-decoration: none; /* Optional: Remove the underline */
+}
+a:hover {
+  color: inherit; /* Inherit the color on hover */
+}
+a:visited {
+  color: inherit; /* Inherit the color after the link is visited */
+}
+a:active {
+  color: inherit; /* Inherit the color when the link is active */
+}
