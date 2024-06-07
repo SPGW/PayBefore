@@ -5,7 +5,7 @@ class EventsController < ApplicationController
   def index
     @backCounter = 0
     @events = Event.all.order(:created_at)
-    @vaults = Vault.all
+    @vaults = Vault.all.order(:created_at)
     @users = User.all
     @donations = Donation.all
   end
