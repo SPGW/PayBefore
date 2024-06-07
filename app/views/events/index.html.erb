@@ -1,12 +1,14 @@
 <div class= "parentDiv">
-  <h1>Index</h1>
+<br>
+<br>
+<br>
 
   <div class="vaultFlexParent">
     <% @vaults.each do |v| %>
     <div class="rounded-pill vaultFlexChild">
       <button style="width:100%;" class="rounded-pill bg-light">
       <span class="text-muted"><%= v.name %> vault: <%=  v.current_amount_vault.to_i %>€</span>
-     </div>
+    </div>
     <% end %>
   </div>
 
