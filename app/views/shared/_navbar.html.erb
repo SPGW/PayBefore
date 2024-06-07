@@ -1,70 +1,52 @@
 
 
-  <div class="navbar navbar-expand-sm navbar-light navbar-lewagon fixed-top">
-    <div class="container">
-      <ul class="navbar-nav me-auto">
-          <li>
-            <%= link_to "/events", class: "navbar-brand me-0" do %>
-            <%= image_tag "", class: 'mt-1'  %>
+
+<!-- Navbar-->
+
+<nav class="navbar navbar-expand-lg fixed-top">
+  <div class="container">
+    <a class="navbar-brand me-auto" href="#">PayBefore</a>
+
+
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">PayBefore</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
+          <li class="nav-item">
+            <a class="nav-link active mx-lg-2" aria-current="page" href="#">Home</a>
           </li>
-        <li>
-          <h2>PayBefore</h2>
-        </li>
-      </ul>
-    <% end %>
+          <li class="nav-item">
+            <a class="nav-link mx-lg-2" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mx-lg-2" href="#">Service</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mx-lg-2" href="#">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mx-lg-2" href="#">Contact</a>
+          </li>
 
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        </ul>
+
+      </div>
+    </div>
+    <a href="#" class="login-button">Login</a>
+    <button class="navbar-toggler pe-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
-        <% if user_signed_in? %>
-
-        <div >
-          <li class="nav-item" style="display:inline-block">
-            <%= link_to "Home", "/events/new", class: "nav-link" %>
-          </li>
-
-          <li class="nav-item" style="display:inline-block">
-            <%= link_to "Vaults", "/vaults", class: "nav-link" %>
-          </li>
-
-          <li class="nav-item" style="display:inline-block">
-            <%= link_to "Events", "/events", class: "nav-link" %>
-          </li>
-        </div>
-
-
-          <li class="nav-item">
-            <%= link_to "profile", "/dashboard", class: "nav-link" %>
-          </li>
-
-          <li class="nav-item"><%= current_user.first_name %></li>
-
-          <li class="nav-item dropdown">
-          <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar", alt: "dropdown menu" %>
-          </a>
-
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
-            </div>
-          </li>
-
-
-
-
-        <% else %>
-          <li class="nav-item">
-          <li>
-              <%= link_to "Signup", "/users/sign_up", class: "nav-link" %>
-          </li>
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-          </li>
-        <% end %>
-      </ul>
-    </div>
   </div>
-</div>
+</nav>
+
+
+<!-- Hero section -->
+
+<section class="hero-section">
+
+</section>
