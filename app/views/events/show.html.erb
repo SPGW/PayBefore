@@ -1,13 +1,13 @@
 <div class="parentDiv">
-  <div style="height:130px;">
-    <hr>
-  </div>
+    <div style="height:130px;">
+      <hr>
+    </div>
 
-<%# new code %>
+        <%# new code %>
 
-    <div class="col events-show-card shadow-sm m-1">
-        <div class="">
-        <%# progress bar %>
+  <div class="col events-show-card shadow-sm m-1">
+      <div class="">
+          <%# progress bar %>
           <div class="progress" role="progressbar" aria-label="Success example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
             <div class="progress-bar  text-dark" style="width: <%= (@event.current_amount / @event.goal_amount) * 100 %>%"></div>
           </div>
@@ -43,23 +43,28 @@
         </div>
         <%# //event location %>
 
+        </div>
+
+    </div>
 
 
 
+    <%# donation form %>
+      <%= simple_form_for @donation do |f| %>
+        <%= f.hidden_field :event_id, value: @event.id %>
+        <%= f.input :contribution, label: 'Donate Now!' %>
+        <%= f.submit "Donate Now!", class: "btn btn-sm btn-primary btn-block mt-2" %>
+      <% end %>
+    <%# join event %>
+    <div data-controller="joinbtn">
+      <%= simple_form_for [@event, @attendee] do |f| %>
+          <% if @existed_attendee %>
+            <%= f.submit "Joined", class: "btn btn-sm btn-primary btn-block mt-2 disabled" %>
+          <% else %>
+            <%= f.submit "Join", class: "btn btn-sm btn-primary btn-block mt-2" %>
+          <% end %>
+      <% end %>
+    </div>
 
-      </div>
 
-
-
-      </div>
-
-
-
-<%# donation form %>
-  <%= simple_form_for @donation do |f| %>
-    <%= f.hidden_field :event_id, value: @event.id %>
-    <%= f.input :contribution, label: 'Donate Now!' %>
-    <%= f.submit "Donate Now!", class: "btn btn-sm btn-primary btn-block mt-2" %>
-  <% end %>
-  </div>
 </div>

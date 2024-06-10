@@ -8,7 +8,7 @@ class User < ApplicationRecord
   validates :last_name, presence: true, length: { maximum: 50 }
   validates :profile_picture, presence: true
 
-  has_many :attendees
+  # has_many :attendees
   has_many :donations
   has_many :events
 end

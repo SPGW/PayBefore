@@ -1,4 +1,8 @@
 
+*{
+  margin: 0;
+  padding: 0;
+}
 body{
   background-color: #ffffff;
 }
@@ -8,7 +12,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 3.75rem;
+  font-size: 75px;
   line-height: 1;
 }
 
@@ -16,6 +20,18 @@ p{
   font-family: "Roboto", sans-serif;
   color: #6c6f8a;
 }
+
+.header{
+
+  text-align: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // background-image: url(/chip.png);
+  background-size: cover;
+}
+
 
 .home-view {
   // height: 100vh;

@@ -38,7 +38,7 @@
       <div class="mainIndexCard" style="background-image: linear-gradient(rgba(0,0,0,0.15), rgba(255,255,255,1)),
       url('<%= cl_image_path event.photo.key, height: 320, crop: :scale %>')"
       >
-        <div id="cardTitle">
+        <div id="cardTitle" class="d-inline-flex focus-ring">
           <h3>Event: <strong><%= event.name %></strong></h3>
         </div>
         <div class="mainIndexCardContent">

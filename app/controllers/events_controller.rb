@@ -16,6 +16,8 @@ class EventsController < ApplicationController
     # @events = Event.all
     @users = User.all
     # @vaults = Vault.all
+    @attendee = Attendee.new
+    @existed_attendee = Attendee.find_by(event: @event, user: current_user)
   end
 
   def new
