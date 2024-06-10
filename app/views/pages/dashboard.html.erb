@@ -1,0 +1,229 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="container">
+
+
+<div class="dashboard-amount-card d-flex justify-content-between align-items-center mb-3">
+  <%# total amount raised %>
+  <div>
+    <h1>€<%= @contribution_sum %>0</h1>
+    <p>Raised from your events.</p>
+  </div>
+  <%# //total amount raised %>
+
+  <div>
+    <%# total amount donated %>
+    <h1>€<%= @donation_sum %>0</h1>
+    <p>That you have donated so far!</p>
+  </div>
+  <%# //total amount donated %>
+
+</div>
+<%# events %>
+<h2>My events</h2>
+<%# total number of events %>
+<p>You have created <%= @events.count %> events</p>
+<%# //total number of events %>
+
+<%# if there are events: %>
+<% if @events.any?%>
+  <% @events.each do |event| %>
+    <div class="event-item d-flex justify-content-between align-items-center mb-3">
+      <p class="mb-0">Event: <%= event.name %></p>
+      <%# event button %>
+      <%= link_to event_path(event), class: "text-decoration-none" do %>
+        <button class="border rounded-pill dashboard-button">
+          <span class="dashboard-button-text">Go to your event</span>
+          <svg class="dashboard-button-arrow" xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h13M12 5l7 7-7 7"/>
+          </svg>
+        </button>
+      <% end %>
+    </div>
+  <% end %>
+  <%# if there are no events: %>
+<% else %>
+<div class="event-item d-flex justify-content-between align-items-center mb-3">
+      <p class="mb-0">You have not created any events yet</p>
+      <%# event button %>
+      <%= link_to new_event_path, class: "text-decoration-none" do %>
+        <button class="border rounded-pill dashboard-button">
+          <span class="dashboard-button-text">Create an event</span>
+          <svg class="dashboard-button-arrow" xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h13M12 5l7 7-7 7"/>
+          </svg>
+        </button>
+      <% end %>
+    </div>
+<% end %>
+<%# //events %>
+
+<%# donations %>
+<br>
+<h2>My Donations</h2>
+<p>You have made <%= @donations.count %> donations</p>
+
+<%# if donations exist %>
+<% if @donations.any?%>
+  <% @donations.each do |donation| %>
+  <div class="event-item d-flex justify-content-between align-items-center mb-3">
+    <p class="mb-0">Event: <%= donation.event.name %></p>
+    <p class="mb-0 dashboard-donation-amount">You donated €<%= donation.contribution%>0 to <%= donation.event.user.first_name.capitalize%>'s event</p>
+    </div>
+  <% end %>
+  <%# if there are no donations: %>
+<% else %>
+<div class="event-item d-flex justify-content-between align-items-center mb-3">
+      <p class="mb-0">You have not made any donations yet</p>
+      <%# event button %>
+      <%= link_to events_path, class: "text-decoration-none" do %>
+        <button class="border rounded-pill dashboard-button">
+          <span class="dashboard-button-text">Find an event</span>
+          <svg class="dashboard-button-arrow" xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h13M12 5l7 7-7 7"/>
+          </svg>
+        </button>
+      <% end %>
+    </div>
+<% end %>
+
+<%# //donations %>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<%#  %>
+<%#  %>
+<%#  %>
+
+<div class="dashboard-amount-card d-flex justify-content-between align-items-center mb-3">
+  <%# total amount raised %>
+  <div>
+    <h1>€<%= @contribution_sum %>0</h1>
+    <p>Raised from your events.</p>
+  </div>
+  <%# //total amount raised %>
+
+  <div>
+    <%# total amount donated %>
+    <h1>€<%= @donation_sum %>0</h1>
+    <p>That you have donated so far!</p>
+  </div>
+  <%# //total amount donated %>
+
+</div>
+
+<%# accordion example %>
+
+<div class="accordion accordion-flush" id="accordionFlushExample">
+    <div class="accordion-item">
+        <h2 class="accordion-header">
+            <button class="accordion-button collapsed d-flex justify-content-between align-items-center" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                <div class="d-flex flex-column text-container">
+                    <span class="span-title">My Events</span>
+                    <span>You have created <%= @events.count %> events</span>
+                </div>
+            </button>
+        </h2>
+        <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+        <div class="accordion-body">
+        <%# accordion body %>
+        <% if @events.any?%>
+          <% @events.each do |event| %>
+            <div class="event-item d-flex justify-content-between align-items-center mb-3">
+              <p class="mb-0">Event: <%= event.name %></p>
+              <%# event button %>
+              <%= link_to event_path(event), class: "text-decoration-none" do %>
+                <button class="border rounded-pill dashboard-button">
+                  <span class="dashboard-button-text">Go to your event</span>
+                  <svg class="dashboard-button-arrow" xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h13M12 5l7 7-7 7"/>
+                  </svg>
+                </button>
+              <% end %>
+            </div>
+          <% end %>
+          <%# if there are no events: %>
+        <% else %>
+        <div class="event-item d-flex justify-content-between align-items-center mb-3">
+              <p class="mb-0">You have not created any events yet</p>
+              <%# event button %>
+              <%= link_to new_event_path, class: "text-decoration-none" do %>
+                <button class="border rounded-pill dashboard-button">
+                  <span class="dashboard-button-text">Create an event</span>
+                  <svg class="dashboard-button-arrow" xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h13M12 5l7 7-7 7"/>
+                  </svg>
+                </button>
+              <% end %>
+            </div>
+        <% end %>
+        <%# end %>
+        </div>
+      </div>
+    </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+            <button class="accordion-button collapsed d-flex justify-content-between align-items-center" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                <div class="d-flex flex-column text-container">
+                    <span class="span-title">My Donations</span>
+                    <span>You have made <%= @donations.count %> donations</span>
+                </div>
+            </button>
+        </h2>
+        <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+        <div class="accordion-body">
+        <%# accordion body %>
+
+        <% if @donations.any?%>
+          <% @donations.each do |donation| %>
+          <div class="event-item d-flex justify-content-between align-items-center mb-3">
+            <p class="mb-0">Event: <%= donation.event.name %></p>
+            <p class="mb-0 dashboard-donation-amount">You donated €<%= donation.contribution%>0 to <%= donation.event.user.first_name.capitalize%>'s event</p>
+            </div>
+          <% end %>
+          <%# if there are no donations: %>
+        <% else %>
+        <div class="event-item d-flex justify-content-between align-items-center mb-3">
+              <p class="mb-0">You have not made any donations yet</p>
+              <%# event button %>
+              <%= link_to events_path, class: "text-decoration-none" do %>
+                <button class="border rounded-pill dashboard-button">
+                  <span class="dashboard-button-text">Find an event</span>
+                  <svg class="dashboard-button-arrow" xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h13M12 5l7 7-7 7"/>
+                  </svg>
+                </button>
+              <% end %>
+            </div>
+        <% end %>
+
+        <%# end %>
+        </div>
+      </div>
+    </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+            <button class="accordion-button collapsed d-flex justify-content-between align-items-center" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                <div class="d-flex flex-column text-container">
+                    <span class="span-title">Attending Events</span>
+                    <span>Placeholder text</span>
+                </div>
+            </button>
+        </h2>
+        <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+        <div class="accordion-body">
+        Placeholder content for this accordion</div>
+      </div>
+    </div>
+  </div>
+
+</div>
