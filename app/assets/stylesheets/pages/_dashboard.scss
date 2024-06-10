@@ -1,0 +1,108 @@
+.event-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  text-align:center;
+  padding-top:15px;
+  padding-bottom:15px;
+  height: 80px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(94, 94, 94, 0.2);
+}
+
+.dashboard-amount-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-top:15px;
+  padding-bottom:15px;
+  // margin-left: 100px;
+  // margin-right: 100px;
+}
+.dashboard-amount-card h1 {
+font-size: 80px;
+}
+
+.event-item:hover {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.event-item p {
+  margin-bottom: 0;
+  margin-left: 15px;
+}
+
+.event-item button {
+  width: auto;
+  margin-right: 15px;
+  background-color: $blue;
+  color: #ffffff;
+
+}
+
+.dashboard-button-text {
+  color: #ffffff;
+  margin-left: 5px;
+}
+.dashboard-button-arrow {
+  margin-right: 5px;
+}
+
+.dashboard-donation-amount {
+  margin-right: 15px;
+}
+
+
+.accordion-body {
+  background-color: #ffffff;
+}
+
+.accordion-button {
+  background-color: #ffffff;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  padding: 0px;
+}
+
+
+.accordion-button:hover {
+  background-color: #ffffff; /* Keep the same background color on hover */
+  border: none; /* Ensure border stays removed on hover */
+  box-shadow: none; /* Ensure box shadow stays removed on hover */
+  transform: none;
+}
+
+.accordion-button:focus {
+  box-shadow: none; /* Remove focus box shadow */
+  border: none; /* Remove focus border */
+  outline: none; /* Remove outline on focus */
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: #ffffff; /* Keep the background color white when accordion is open */
+  color: inherit; /* Keep the text color unchanged */
+}
+
+.accordion-button:not(.collapsed)::after {
+  color: inherit; /* Ensure the icon color is unchanged */
+}
+
+.text-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
+}
+
+.accordion-header {
+  text-align: left;
+}
+
+.span-title {
+  font-size: 25px;
+}
