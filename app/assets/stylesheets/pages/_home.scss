@@ -54,6 +54,16 @@ button {
 
  }
 
+.dashboard-button-arrow {
+  margin-left: 5px;
+  transition: transform 0.3s ease;
+}
+
+
+.dashboard-button:hover .dashboard-button-arrow {
+  transform: translateX(5px);
+}
+
  button > svg {
   margin-right: 5px;
   margin-left: 5px;

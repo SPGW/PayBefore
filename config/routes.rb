@@ -17,4 +17,7 @@ Rails.application.routes.draw do
   # get '/donations/create/:amount', to: 'donations#create'
   get '/donations/checkout/:id', to: 'donations#checkout', as: 'donation_checkout'
   get '/donations/success/:id', to: 'donations#success', as: 'donation_success'
+
+  # dashboard
+  get '/dashboard', to: 'pages#dashboard', as: 'dashboard'
 end
