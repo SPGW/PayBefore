@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
-  resources :events
 
   resources :vaults, only: [:show]
 
@@ -9,7 +8,10 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
-  resources :events, only: [:index, :new, :create, :show]
+  resources :events, only: [:index, :new, :create, :show] do
+    resources :attendees, only: [:create]
+  end
+
   resources :donations, only: [:create]
 
   # get '/donations/create/:amount', to: 'donations#create'
