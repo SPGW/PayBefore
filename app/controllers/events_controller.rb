@@ -13,11 +13,15 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     @donation = Donation.new
-    # @events = Event.all
     @users = User.all
-    # @vaults = Vault.all
     @attendee = Attendee.new
     @existed_attendee = Attendee.find_by(event: @event, user: current_user)
+
+    # The `geocoded` scope filters only events with coordinates
+    @markers = {
+        lat: @event.latitude,
+        lng: @event.longitude
+      }
   end
 
   def new
@@ -51,7 +55,7 @@ class EventsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def event_params
-    params.require(:event).permit(:name, :location, :description, :goal_amount, :vault_id, :photo)
+    params.require(:event).permit(:name, :location, :description, :goal_amount, :vault_id, :photo, :markers, lat:, lng:)
   end
 
 end

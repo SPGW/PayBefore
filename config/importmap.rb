@@ -30,3 +30,5 @@ pin "@popperjs/core", to: "@popperjs--core.js", preload: true # @2.11.8
 # pin "qs" # @6.12.1
 # pin "set-function-length" # @1.2.2
 # pin "side-channel" # @1.0.6
+pin "mapbox-gl", to: "https://ga.jspm.io/npm:mapbox-gl@3.1.2/dist/mapbox-gl.js"
+pin "process", to: "https://ga.jspm.io/npm:@jspm/core@2.0.1/nodelibs/browser/process-production.js"
