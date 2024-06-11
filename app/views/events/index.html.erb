@@ -1,10 +1,10 @@
-<div class= "parentDiv">
+<div class= "parentDiv ">
 <br>
 <br>
 <br>
 
 <%# vault button %>
-<div class="vaultFlexParent">
+<div class="vaultFlexParent mt-5">
   <% @vaults.each do |v| %>
     <div class="rounded-pill vaultFlexChild">
       <%= link_to vault_path(v), class: "text-decoration-none", style: "width:100%; display:block;" do %>
@@ -31,9 +31,9 @@
 
 <%# new new event button %>
 
-  <div  class="indexGridContainer shadow">
+  <div  class="indexGridContainer mb-5" >
       <% @events.each do |event| %>
-      <%= link_to event, :style=>'color: black;', :action => 'go' do %>
+        <%= link_to event, :style=>'color: black;', :action => 'go' do %>
 
       <div class="mainIndexCard" style="background-image: linear-gradient(rgba(0,0,0,0.15), rgba(255,255,255,1)),
       url('<%= cl_image_path event.photo.key, height: 320, crop: :scale %>')"
@@ -51,8 +51,7 @@
             <h6><%= userIndex.first_name %> <%= userIndex.last_name %></h6>
         </div>
       </div>
-
-      <% end %>
           <% end %>
+        <% end %>
   </div>
 </div>
