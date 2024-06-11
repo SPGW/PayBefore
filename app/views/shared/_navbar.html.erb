@@ -25,11 +25,15 @@
           </li>
         </ul>
       </div>
-
     </div>
+
+    <% if user_signed_in? %>
+    <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "nav-link text-light login-button" %>
+    <% else %>
     <%= link_to "Login", new_user_session_path, class: "nav-link text-light login-button" %>
     <button class="navbar-toggler pe-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+      <%# <span class="navbar-toggler-icon"></span> %>
     </button>
+    <% end %>
   </div>
 </nav>
