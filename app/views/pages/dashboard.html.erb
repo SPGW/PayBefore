@@ -40,7 +40,7 @@
           <% if @events.any?%>
             <% @events.each do |event| %>
               <div class="event-item d-flex justify-content-between align-items-center mb-3">
-                <p class="mb-0">Event: <%= event.name %></p>
+                <p class="mb-0"><%= event.name %></p>
                 <%# event button %>
                 <%= link_to event_path(event), class: "text-decoration-none" do %>
                 <button class="border rounded-pill dashboard-button">
@@ -154,7 +154,7 @@
       <% if @attendees.any?%>
             <% @attendees.each do |attendee| %>
               <div class="event-item d-flex justify-content-between align-items-center mb-3">
-                <p class="mb-0">Event: <%= attendee.event.name %></p>
+                <p class="mb-0"><%= attendee.event.name %></p>
                 <%# attendee button %>
                 <%= link_to event_path(attendee.event), class: "text-decoration-none" do %>
                 <button class="border rounded-pill dashboard-button">
