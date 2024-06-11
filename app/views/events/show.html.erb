@@ -21,7 +21,7 @@
 
         <%# event title %>
         <div class=" d-flex justify-content-center mt-3">
-          <div class="ms-3"><h3><strong>Event:</strong> <%= @event.name%> </h3></div>
+          <div class="ms-3"><h3>Event:<strong></strong> <%= @event.name%> </h3></div>
         </div>
         <%# //event title %>
 
@@ -45,28 +45,46 @@
         </div>
     </div>
 
+  <%# //event map %>
   <div style="width: 100%; height: 250px; margin-bottom:20px;"
-    data-controller="map"
-    data-map-markers-value="<%= @markers.to_json %>"
-    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    class = "col events-show-card shadow-sm m-1"
+      data-controller="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
+
   <hr>
 
     <%# donation form %>
-      <%= simple_form_for @donation do |f| %>
-        <%= f.hidden_field :event_id, value: @event.id %>
-        <%= f.input :contribution, label: 'Donate Now!', hint:'(type in desired amount)' %>
-        <%= f.submit "Donate Now!", class: "btn btn-sm btn-primary btn-block mt-2" %>
-      <% end %>
+
+  <%= simple_form_for @donation do |f| %>
+    <%= f.hidden_field :event_id, value: @event.id %>
+    <%= f.input :contribution, label: 'Donation amount', hint:'(type in desired amount)' %>
+    <%= f.submit "Donate Now!", class: "btn btn-sm btn-primary btn-block mt-2" %>
+  <% end %>
+
+  <hr>
+
     <%# join event %>
-    <div data-controller="joinbtn">
+    <div data-controller="joinbtn" class ="d-flex justify-content-center">
       <%= simple_form_for [@event, @attendee] do |f| %>
           <% if @existed_attendee %>
-            <%= f.submit "Joined", class: "btn btn-sm btn-primary btn-block mt-2 disabled" %>
+            <%= f.submit "Joined", class: "btn btn-sm btn-primary btn-block mt-2 rounded-pill disabled" %>
           <% else %>
-            <%= f.submit "Join", class: "btn btn-sm btn-primary btn-block mt-2" %>
+            <%= f.submit "Join", class: "btn btn-sm btn-primary btn-block mt-2 rounded-pill d-flex justify-content-center" %>
           <% end %>
       <% end %>
-    </div>
+      </div>
+    <h3 class= "d-flex justify-content-center mt-3">Attendees:</h3>
 
+      <div class=" flexAttendeesParent" >
+        <% @attendees.each do |user|  %>
+          <% attendee = @users.find(user.user_id) %>
+          <button class="flexAttendeesChild rounded-pill" style="margin:20px;"><%= attendee.first_name %> <%= attendee.last_name %></button>
+        <% end %>
+
+    </div>
+    <hr>
+
+</div>
 <div>
