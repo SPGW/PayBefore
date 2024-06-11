@@ -3,82 +3,80 @@
 <br>
 <br>
 <br>
-<div class="container checkout-container">
-<%# checkout details %>
-<div class="checkout-details">
+<div class="container">
 
-<%# Donation amount %>
-
-<% if @donation.event_id? %>
-  <h2>You are donating to <%= @donation.event.user.first_name %>'s event <%= @donation.event.name %></h2>
-<% end %>
-<% if @donation.vault_id? %>
-  <h2>You are donating to Paybefore's <%= @donation.vault.name %> vault</h2>
-<% end %>
-
-<p>Your generosity can make a huge difference!  Join  Paybefore in our mission to provide essential support to those in need. By donating, you’ll make a positive impact today. Every donation helps!</p>
-<h2>Compleate Your Donation</h2>
-<hr>
-  <div style="display: flex; justify-content: space-between;">
-    <div>
-      <p>Order Number:</p>
-    </div>
-    <div style="text-align: right;">
-      <p>#001337<%= @donation.id %></p>
-    </div>
-  </div>
-  <div style="display: flex; justify-content: space-between;">
-    <div>
-      <p>Donation Amount:</p>
-    </div>
-    <div style="text-align: right;">
-      <p>€<%= @donation.contribution %>0</p>
-    </div>
-  </div>
-  <hr>
-  <div style="display: flex; justify-content: space-between;">
-    <div>
-      <p><strong>Total:</strong></p>
-    </div>
-    <div style="text-align: right;">
-      <p><strong>€<%= @donation.contribution %>0</strong></p>
-    </div>
-  </div>
-
-
-
-
-
-
-
-
-<%# // Donation amount %>
-
-
-
-<%# stripe payment %>
-<h2>Payment Information</h2>
-<div data-controller="checkout" data-checkout-id-value='<%= @donation.id %>' data-checkout-secret-value= '<%= @donation.payment_intent_id %>' data-checkout-key-value="<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>">
-  <form id="payment-form" data-checkout-target = 'form' data-action = 'submit->checkout#submit'>
-  <div id="payment-element" data-checkout-target='payment'>
-    <!-- Elements will create form elements here -->
+  <%# Donation amount %>
+  <h2>Compleate Your Donation</h2>
+  <div class="description">
+  <p>Your generosity can make a huge difference!  Join  Paybefore in our mission to provide essential support to those in need. By donating, you’ll make a positive impact today. Every donation helps!</p>
   </div>
   <br>
 
-  <%# donate button %>
+  <%# checkout details %>
 
-  <button id="submit" data-checkout-target='submit' class="border rounded-pill" style="width:100%" >Donate!</button>
-  <div id="error-message" data-checkout-target='error'>
-    <!-- Display error message to your customers here -->
+<div class="checkout-container">
+  <div class="checkout-details">
+  <h2>Order Details</h2>
+    <% if @donation.event_id? %>
+      <p>You are donating to <%= @donation.event.user.first_name %>'s event <%= @donation.event.name %></p>
+    <% end %>
+    <% if @donation.vault_id? %>
+      <p>You are donating to Paybefore's <%= @donation.vault.name %> vault</p>
+    <% end %>
+
+    <hr>
+    <div style="display: flex; justify-content: space-between;">
+      <div>
+        <p>Order Number:</p>
+      </div>
+      <div style="text-align: right;">
+        <p>#001337<%= @donation.id %></p>
+      </div>
+    </div>
+    <div style="display: flex; justify-content: space-between;">
+      <div>
+        <p>Donation Amount:</p>
+      </div>
+      <div style="text-align: right;">
+        <p>€<%= @donation.contribution %>0</p>
+      </div>
+    </div>
+    <hr>
+    <div style="display: flex; justify-content: space-between;">
+      <div>
+        <p><strong>Total:</strong></p>
+      </div>
+      <div style="text-align: right;">
+        <p><strong>€<%= @donation.contribution %>0</strong></p>
+      </div>
+    </div>
+
+
+  <%# // Donation amount %>
+
+
+
+  <%# stripe payment %>
+      <h2>Payment Information</h2>
+      <hr>
+      <br>
+      <div data-controller="checkout" data-checkout-id-value='<%= @donation.id %>' data-checkout-secret-value= '<%= @donation.payment_intent_id %>' data-checkout-key-value="<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>">
+        <form id="payment-form" data-checkout-target='form' data-action='submit->checkout#submit'>
+          <div id="payment-element" data-checkout-target='payment'>
+            <!-- Elements will create form elements here -->
+          </div>
+          <br>
+
+          <%# donate button %>
+
+          <button id="submit" data-checkout-target='submit' class="border rounded-pill checkout-button" style="width:100%">Donate!</button>
+          <div id="error-message" data-checkout-target='error'>
+            <!-- Display error message to your customers here -->
+          </div>
+        </form>
+      </div>
+    </div>
   </div>
-</form>
-</div>
-<%# // end of stripe payment %>
 </div>
 
-<%# checkout image %>
-<div class="checkout-image">
-
-</div>
-</div>
 <br>
