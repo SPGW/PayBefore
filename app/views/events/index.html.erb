@@ -46,7 +46,7 @@
           <h4>Goal amount: <strong><%= event.goal_amount.to_i %>€</strong></h4>
           <% specific_vault = @vaults.find(event.vault_id) %>
           <h4>Vault: <strong><%= specific_vault.name %></strong></h4>
-            <h5>Location: <strong><%= event.location %></strong></h5>
+            <h5>Location: <strong><%= event.address %></strong></h5>
             <% userIndex = @users.find( event.user_id) %>
             <h6><%= userIndex.first_name %> <%= userIndex.last_name %></h6>
         </div>
