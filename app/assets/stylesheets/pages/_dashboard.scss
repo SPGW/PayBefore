@@ -36,7 +36,7 @@ font-size: 80px;
 
 .event-item button {
   width: auto;
-  margin-right: 15px;
+  margin-right: 5px;
   background-color: $blue;
   color: #ffffff;
 
@@ -44,10 +44,10 @@ font-size: 80px;
 
 .dashboard-button-text {
   color: #ffffff;
-  margin-left: 5px;
+  margin-left: 10px;
 }
 .dashboard-button-arrow {
-  margin-right: 5px;
+  margin-right: 10px;
 }
 
 .dashboard-donation-amount {
@@ -71,25 +71,25 @@ font-size: 80px;
 
 
 .accordion-button:hover {
-  background-color: #ffffff; /* Keep the same background color on hover */
-  border: none; /* Ensure border stays removed on hover */
-  box-shadow: none; /* Ensure box shadow stays removed on hover */
+  background-color: #ffffff;
+  border: none;
+  box-shadow: none;
   transform: none;
 }
 
 .accordion-button:focus {
-  box-shadow: none; /* Remove focus box shadow */
-  border: none; /* Remove focus border */
-  outline: none; /* Remove outline on focus */
+  box-shadow: none;
+  border: none;
+  outline: none;
 }
 
 .accordion-button:not(.collapsed) {
-  background-color: #ffffff; /* Keep the background color white when accordion is open */
-  color: inherit; /* Keep the text color unchanged */
+  background-color: #ffffff;
+  color: inherit;
 }
 
 .accordion-button:not(.collapsed)::after {
-  color: inherit; /* Ensure the icon color is unchanged */
+  color: inherit;
 }
 
 .text-container {
