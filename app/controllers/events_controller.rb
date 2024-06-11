@@ -16,9 +16,9 @@ class EventsController < ApplicationController
     @users = User.all
     @attendee = Attendee.new
     @existed_attendee = Attendee.find_by(event: @event, user: current_user)
-
-    # The `geocoded` scope filters only events with coordinates
-    @markers = {
+    # @attendees = Attendee.all
+    @attendees = Attendee.select { |att| att.event_id == @event.id}
+    @markers = {     # necessary for mapbox
         lat: @event.latitude,
         lng: @event.longitude
       }
@@ -36,7 +36,7 @@ class EventsController < ApplicationController
       if @event.save
         redirect_to event_path(@event)
       else
-        render :new, notice: 'hey guy the form is not correct.'
+        render :new, notice: 'apologies, the form was not correctly filled in.'
       end
     end
   end
@@ -55,7 +55,7 @@ class EventsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def event_params
-    params.require(:event).permit(:name, :location, :description, :goal_amount, :vault_id, :photo, :markers, lat:, lng:)
+    params.require(:event).permit(:name, :address, :description, :goal_amount, :vault_id, :photo, :markers, :opening_date)
   end
 
 end
