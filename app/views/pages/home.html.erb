@@ -2,12 +2,13 @@
   <div class="header">
   <div class="header-content">
    <h1>Pay Before</h1>
-      <p class="element pt-5">Need Financial Assistance? Share your story and receive the support you need.</p>
+      <p class="element pt-5" data-controller="typed-text">
+      </p>
        <div class="home-btn mt-5 d-flex justify-content-center align-items-center">
           <%= link_to events_path, class: "text-decoration-none" do %>
           <button class="border rounded-pill">
           <span>Events</span>
-          <svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12 5l7 7-7 7"/></svg></button>
+          <svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12 5l7 7-7 7"/></svg></button>
         <% end %>
         </div>
   </div>
@@ -30,25 +31,6 @@
     <div class="container mt-5">
       <%= render partial: "vaults/vaults" %>
     </div>
-
-    <script>
-  // document.addEventListener('DOMContentLoaded', () => {
-  //   var options = {
-  //     strings: [
-  //       "Need Financial Assistance? Share your story and receive the support you need.",
-  //     ],
-  //     typeSpeed: 30,
-  //     backSpeed: 20,
-  //     backDelay: 1000,
-  //     startDelay: 500,
-  //     loop: false,
-  //     showCursor: true,
-  //     cursorChar: ' '
-  //   };
-
-  //   var typed = new Typed(".element", options);
-  // });
-</script>
 
 
   </div>
