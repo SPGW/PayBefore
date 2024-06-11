@@ -1,8 +1,4 @@
 
-*{
-  margin: 0;
-  padding: 0;
-}
 body{
   background-color: #ffffff;
   display: flex;
@@ -21,7 +17,10 @@ h1 {
 
 p{
   font-family: "Roboto", sans-serif;
-  color: #6c6f8a;
+  font-size: 1.25rem;
+  font-weight: 300;
+  line-height: 1.5;
+  color: #6c757d;
 }
 
 .header{
@@ -85,13 +84,31 @@ button {
  }
 
  .item-mission{
-  box-shadow: 0 0.5px 1px rgba(103, 50, 248, 0.283);
-  border-radius: 10px;
-  padding: 25px;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: $sec-violet;
+  // margin: 2.5rem auto 6.75rem;
  }
+ .item-about{
+  max-width: 60rem;
+  // padding: 4.1875rem 1rem 5.3125rem;
+ }
+ .item-about h2{
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+}
+.item-about p{
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
 
  .progress-bar{
-  color: #6c6f8a;
+  background-color: $main-violet;
  }
 
  a {
