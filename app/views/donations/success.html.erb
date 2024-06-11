@@ -2,4 +2,60 @@
 <br>
 <br>
 <br>
-<h2 class="my-150">payment status: <%= @donation.status %></h2>
+<br>
+<div class="container">
+
+  <%# <%= if @donation.status == "succeeded" %>
+    <%# Donation amount %>
+    <h2>Payment Confirmation</h2>
+    <div class="description">
+      <p>Thank you for your generous donation! Your support will make a real difference in the lives of those in need. We deeply appreciate your kindness and commitment to our cause.</p>
+    </div>
+    <br>
+
+    <%# Order details %>
+
+    <div class="checkout-container">
+      <div class="checkout-details">
+        <h2>Order Details</h2>
+        <% if @donation.event_id? %>
+          <p>You are donating to <%= @donation.event.user.first_name %>'s event <%= @donation.event.name %></p>
+        <% end %>
+        <% if @donation.vault_id? %>
+          <p>You are donating to Paybefore's <%= @donation.vault.name %> vault</p>
+        <% end %>
+
+        <hr>
+        <div style="display: flex; justify-content: space-between;">
+          <div>
+            <p>Order Number:</p>
+          </div>
+          <div style="text-align: right;">
+            <p>#001337<%= @donation.id %></p>
+          </div>
+        </div>
+        <div style="display: flex; justify-content: space-between;">
+          <div>
+            <p>Donation Amount:</p>
+          </div>
+          <div style="text-align: right;">
+            <p>€<%= @donation.contribution %>0</p>
+          </div>
+        </div>
+        <hr>
+        <div style="display: flex; justify-content: space-between;">
+          <div>
+            <p><strong>Total:</strong></p>
+          </div>
+          <div style="text-align: right;">
+            <p><strong>€<%= @donation.contribution %>0</strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <%# if donation status is not successful %>
+    <%# <% else %>
+    <%# <% end %>
+  <%# // order details %>
+</div>
