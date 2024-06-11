@@ -8,14 +8,14 @@
   <div class="dashboard-amount-card d-flex justify-content-between align-items-center mb-3">
     <%# total amount raised %>
     <div>
-      <h1>€<%= @contribution_sum %>0</h1>
+      <h1>€<%= @contribution_sum %></h1>
       <p>Raised from your events.</p>
     </div>
     <%# //total amount raised %>
 
     <div>
       <%# total amount donated %>
-      <h1>€<%= @donation_sum %>0</h1>
+      <h1>€<%= @donation_sum %></h1>
       <p>That you have donated so far!</p>
     </div>
     <%# //total amount donated %>
@@ -76,7 +76,7 @@
             <button class="accordion-button collapsed d-flex justify-content-between align-items-center" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
                 <div class="d-flex flex-column text-container">
                     <span class="span-title">My Donations</span>
-                    <span>You have made <%= @donations.count %> donations</span>
+                    <span>You have made <%= @donations_events.count + @donations_vaults.count%> donations</span>
                 </div>
             </button>
         </h2>
@@ -84,10 +84,11 @@
         <div class="accordion-body">
         <%# accordion body %>
 
-        <% if @donations.any?%>
-          <% @donations.each do |donation| %>
+        <%# if you donated to an event %>
+        <% if @donations_events.any?%>
+          <% @donations_events.each do |donation| %>
           <div class="event-item d-flex justify-content-between align-items-center mb-3">
-            <p class="mb-0">You donated €<%= donation.contribution%>0 to <%= donation.event.user.first_name.capitalize%>'s event</p>
+            <p class="mb-0">You donated €<%= donation.contribution%> to <%= donation.event.user.first_name.capitalize%>'s event</p>
               <%# link to donation success page %>
               <%= link_to donation_success_path(donation), class: "text-decoration-none" do %>
                 <button class="border rounded-pill dashboard-button">
@@ -99,7 +100,23 @@
               <% end %>
             </div>
           <% end %>
-          <%# if there are no donations: %>
+          <%# if you donated to a vault: %>
+        <% @donations_vaults.any?%>
+          <% @donations_vaults.each do |donation| %>
+            <div class="event-item d-flex justify-content-between align-items-center mb-3">
+              <p class="mb-0">You donated €<%= donation.contribution%>0 to the <%= donation.vault.name%> vault</p>
+                <%# link to donation success page %>
+                <%= link_to donation_success_path(donation), class: "text-decoration-none" do %>
+                  <button class="border rounded-pill dashboard-button">
+                    <span class="dashboard-button-text">View your donation confirmation</span>
+                    <svg class="dashboard-button-arrow" xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h13M12 5l7 7-7 7"/>
+                  </svg>
+                </button>
+              <% end %>
+            </div>
+          <% end %>
+
         <% else %>
         <div class="event-item d-flex justify-content-between align-items-center mb-3">
               <p class="mb-0">You have not made any donations yet</p>
@@ -114,6 +131,8 @@
               <% end %>
             </div>
         <% end %>
+
+
 
         <%# end %>
         </div>
