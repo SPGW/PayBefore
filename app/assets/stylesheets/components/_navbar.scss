@@ -1,15 +1,4 @@
-// .navbar-lewagon {
-//   justify-content: space-between;
-//   background: white;
-// }
 
-// .navbar-lewagon .navbar-collapse {
-//   flex-grow: 0;
-// }
-
-// .navbar-lewagon .navbar-brand img {
-//   width: 40px;
-// }
 .navbar{
   height: 80px;
   margin: 20px;
@@ -22,12 +11,12 @@
 .navbar-brand{
   font-size: 24px;
   font-weight: 500;
-  color: $blue;
+  color: $main-violet;
   transition: 0.3s color;
 }
 
 .login-button{
-  background-color: $blue;
+  background-color: $main-violet;
   color: #ffffff;
   font-size: 14px;
   padding: 8px 20px;
