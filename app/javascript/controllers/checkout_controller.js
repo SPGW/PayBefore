@@ -31,7 +31,7 @@ export default class extends Controller {
         //`Elements` instance that was used to create the Payment Element
         elements: this.elements,
         confirmParams: {
-          return_url: `http://localhost:3000/donations/success/${this.idValue}`,
+          return_url: `https://paybefore-f9e954c5a370.herokuapp.com/donations/success/${this.idValue}`,
         },
       });
 
