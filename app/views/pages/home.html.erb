@@ -33,8 +33,9 @@
     </div>
 
       <%# Ticker %>
-    <div class="container justify-content-center tickerFlexParent">
-       <div class="shadow mt-5 tickerFlexChild">
+    <div style="width:960px" class="d-flex row p-5 justify-content-center  pt-1 tickerFlexParent">
+
+       <div  class="shadow tickerFlexChild col  ">
         <h3>Total amount raised:</h3>
         <% total_amount_raised = 0 %>
         <% @events.each do |e| %>
@@ -46,17 +47,15 @@
         <h2><%= total_amount_raised.to_i %>€</h2>
        </div>
 
-        <div class="shadow mt-5 tickerFlexChild">
+        <div class="shadow  tickerFlexChild col">
         <% total_amount_donations = 0 %>
         <h3>Number of donations:</h3>
         <h2><%= @donations.size %></h2>
         </div>
 
-       <div class="shadow mt-5 tickerFlexChild">
+       <div class="shadow  tickerFlexChild col">
        <h3>Events completed:</h3>
        <h2><%= @successful_events.size %></h2>
-       </div>
+      </div>
     </div>
-
-
 </div>

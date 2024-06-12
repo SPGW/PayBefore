@@ -133,10 +133,14 @@ a:active {
 
 // TICKER
 .tickerFlexParent{
-  display:flex;
-
+  // display:flex;
+  margin:auto;
 }
 
 .tickerFlexChild{
-margin:20px;
+margin:10px;
+color:rgb(90,90,90);
+padding:20px;
+height:180px;
+flex-grow:1;
 }
