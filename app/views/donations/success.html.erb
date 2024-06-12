@@ -19,10 +19,10 @@
       <div class="checkout-details">
         <h2>Order Details</h2>
         <% if @donation.event_id? %>
-          <p>You are donating to <%= @donation.event.user.first_name %>'s event <%= @donation.event.name %></p>
+          <p>You have donated to <%= @donation.event.user.first_name %>'s event <%= @donation.event.name %></p>
         <% end %>
         <% if @donation.vault_id? %>
-          <p>You are donating to Paybefore's <%= @donation.vault.name %> vault</p>
+          <p>You have donated to Paybefore's <%= @donation.vault.name %> vault</p>
         <% end %>
 
         <hr>
