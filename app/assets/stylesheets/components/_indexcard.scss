@@ -61,28 +61,27 @@
 
 #cardTitle{
   font-size:80%;
-  background-color:rgba(255, 255, 255, 0.6);
+  background-color: $sec-violet;
   padding:20px;
   position:absolute;
-  top:87%;
-  height:700px;
-  // backdrop-filter: blur(5px);
-  // filter: blur(5px);
+  top:70%;
+  height:200px;
+  backdrop-filter: blur(5px);
 }
 .mainIndexCardContent{
-    // height: calc(100% - 60px);
-  background-color: rgba(255, 255, 255, 0.975);
+  background-color: $sec-violet;
   position: absolute;
   top: 450px;
   padding:20px;
   height:600px;
   font-size:60%;
+  backdrop-filter: blur(5px);
 }
 
 .mainIndexCard:hover .mainIndexCardContent{
-  transition:10s;
+  transition:1.25s;
   display:block;
-  top: 0px;
+  top: 40%;
 }
 .mainIndexCard:hover #cardTitle{
   transition:1.5s;
@@ -92,4 +91,8 @@
 
 .mainIndexCard:focus{
 color:red
+}
+
+.eventIcon {
+  margin-right: 10px;
 }
