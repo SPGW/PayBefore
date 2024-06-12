@@ -4,16 +4,26 @@ class DonationsController < ApplicationController
       @donation = Donation.new(donation_params)
       @donation.user = current_user
 
+      # Validate the contribution amount
+      amount = donation_params["contribution"].gsub(".", "").to_i
+      if amount <= 0
+        flash[:alert] = "Donation amount must be greater than zero."
+        redirect_to event_path(@donation.event_id) and return
+      end
+
+      # Create the PaymentIntent if the amount is valid
       paymentIntent = Stripe::PaymentIntent.create({
-        amount: donation_params["contribution"].gsub(".","").to_i,
+        amount: amount,
         currency: 'eur',
-        automatic_payment_methods: {enabled: true},
+        automatic_payment_methods: { enabled: true },
       })
       @donation.payment_intent_id = paymentIntent.client_secret
+
       if @donation.save
         redirect_to donation_checkout_path(@donation)
       else
-        redirect_to root_path
+        flash[:alert] = "There was an error processing your donation. Please try again."
+        redirect_to event_path(@donation.event_id)
       end
     else
       redirect_to new_user_session_path, notice: 'You are not logged in buddy.'

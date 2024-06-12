@@ -6,6 +6,7 @@ class Event < ApplicationRecord
   has_many :attendees
 
   has_one_attached :photo
+  validates :user, presence: true
 
   geocoded_by :address #added by AAG for mapbox
   after_validation :geocode, if: :will_save_change_to_address? #added by AAG for mapbox

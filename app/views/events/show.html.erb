@@ -55,11 +55,17 @@
 
   <hr>
 
-    <%# donation form %>
+<%# donation form %>
 
-  <%= simple_form_for @donation do |f| %>
+  <% if flash[:alert] %>
+    <div class="alert alert-danger">
+      <%= flash[:alert] %>
+    </div>
+  <% end %>
+
+  <%= simple_form_for @donation, url: donations_path do |f| %>
     <%= f.hidden_field :event_id, value: @event.id %>
-    <%= f.input :contribution, label: 'Donation amount', hint:'(type in desired amount)' %>
+    <%= f.input :contribution, label: 'Donation amount', hint: '(type in desired donation amount)', required: true %>
     <%= f.submit "Donate Now!", class: "btn btn-sm btn-primary btn-block mt-2" %>
   <% end %>
 
