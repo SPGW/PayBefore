@@ -42,7 +42,7 @@ cloudinaryPhoto1 = URI.open("https://res.cloudinary.com/dz9wrleoq/image/upload/v
   event.photo.attach(io: cloudinaryPhoto1, filename: "nes.png", content_type: "image/png")
   event.save
 end
-
+sleep(1)
 # cloudinaryPhoto2 = URI.open("https://res.cloudinary.com/dz9wrleoq/image/upload/v1717619363/midjourney68_hospital_3_uqedwh.png")
 # 1.times do |d|
 #   event = Event.create(name: Faker::Quotes::Shakespeare.hamlet_quote, goal_amount: rand(800..1000), current_amount: rand(200..799),
@@ -67,6 +67,7 @@ cloudinaryPhoto4 = URI.open("https://res.cloudinary.com/dz9wrleoq/image/upload/v
   event.photo.attach(io: cloudinaryPhoto4, filename: "nes.png", content_type: "image/png")
   event.save
 end
+sleep(1)
 
 # cloudinaryPhoto5 = URI.open("https://res.cloudinary.com/dz9wrleoq/image/upload/v1717621502/midjourney68_resi_2_syq8zn.png")
 # 1.times do |d|
@@ -83,6 +84,7 @@ cloudinaryPhoto6 = URI.open("https://res.cloudinary.com/dz9wrleoq/image/upload/v
   event.photo.attach(io: cloudinaryPhoto6, filename: "nes.png", content_type: "image/png")
   event.save
 end
+sleep(1)
 
 # cloudinaryPhoto7 = URI.open("https://res.cloudinary.com/dz9wrleoq/image/upload/v1717622024/midjourney68_education_2_zvqbse.png")
 # 1.times do |d|
