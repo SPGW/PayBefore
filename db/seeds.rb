@@ -43,6 +43,23 @@ cloudinaryPhoto1 = URI.open("https://res.cloudinary.com/dz9wrleoq/image/upload/v
   event.save
 end
 sleep(1)
+<<<<<<< homepageticker
+# cloudinaryPhoto2 = URI.open("https://res.cloudinary.com/dz9wrleoq/image/upload/v1717619363/midjourney68_hospital_3_uqedwh.png")
+# 1.times do |d|
+#   event = Event.create(name: Faker::Quotes::Shakespeare.hamlet_quote, goal_amount: rand(800..1000), current_amount: rand(200..799),
+#   description: Faker::Company.bs, address: Faker::Address.full_address, vault: vault_2, user: users.sample)
+#   event.photo.attach(io: cloudinaryPhoto2, filename: "nes.png", content_type: "image/png")
+#   event.save
+# end
+
+# cloudinaryPhoto3 = URI.open("https://res.cloudinary.com/dz9wrleoq/image/upload/v1717619363/midjourney68_hospital_2_pnkwlv.png")
+# 1.times do |d|
+#   event = Event.create(name: Faker::Quotes::Shakespeare.hamlet_quote, goal_amount: rand(800..1000), current_amount: rand(200..799),
+#   description: Faker::Company.bs, address: Faker::Address.full_address, vault: vault_2, user: users.sample)
+#   event.photo.attach(io: cloudinaryPhoto3, filename: "nes.png", content_type: "image/png")
+#   event.save
+# end
+=======
 
 cloudinaryPhoto2 = URI.open("https://media.istockphoto.com/id/1409722748/photo/students-raising-hands-while-teacher-asking-them-questions-in-classroom.jpg?b=1&s=170667a&w=0&k=20&c=wmjzzESyHcSDFXYI1qzngse-EIj7aBMfebEaqjT8cjM=")
 1.times do |d|
@@ -51,6 +68,7 @@ cloudinaryPhoto2 = URI.open("https://media.istockphoto.com/id/1409722748/photo/s
   event.save
 end
 sleep(1)
+>>>>>>> master
 
 cloudinaryPhoto3 = URI.open("https://res.cloudinary.com/dz9wrleoq/image/upload/v1717621502/midjourney68_resi_1_fxr4it.png")
 1.times do |d|

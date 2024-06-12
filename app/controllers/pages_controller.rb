@@ -1,8 +1,12 @@
 class PagesController < ApplicationController
   before_action :authenticate_user!, except: [:home]
+  require 'date'
 
   def home
+    @events = Event.all.order(:created_at)
     @vaults = Vault.all.order(:created_at)
+    @donations = Donation.all.order(:created_at)
+    @successful_events = Event.select { |e| e.current_amount > e.goal_amount   &&  Date.parse(e.opening_date) < Date.today}
   end
 
   def dashboard
