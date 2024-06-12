@@ -38,15 +38,15 @@
       <div class="mainIndexCard" style="background-image: linear-gradient(rgba(0,0,0,0.15), rgba(255,255,255,1)),
       url('<%= cl_image_path event.photo.key, height: 320, crop: :scale %>')"
       >
-        <div id="cardTitle" class="d-inline-flex focus-ring">
-          <h3>Event: <strong><%= event.name %></strong></h3>
+        <div id="cardTitle" class="d-inline-flex ">
+          <h3><%= event.name %></h3>
         </div>
-        <div class="mainIndexCardContent">
 
-          <h4>Goal amount: <strong><%= event.goal_amount.to_i %>€</strong></h4>
+        <div class="mainIndexCardContent">
+          <h4><i class="fa-solid fa-hand-holding-dollar eventIcon"></i><%= event.goal_amount.to_i %>€</h4>
           <% specific_vault = @vaults.find(event.vault_id) %>
-          <h4>Vault: <strong><%= specific_vault.name %></strong></h4>
-            <h5>Location: <strong><%= event.address %></strong></h5>
+          <h4><i class="fa-solid fa-unlock eventIcon"></i><%= specific_vault.name %></h4>
+            <h4><i class="fa-solid fa-location-dot eventIcon"></i><%= event.address %></h4>
             <% userIndex = @users.find( event.user_id) %>
             <h6><%= userIndex.first_name %> <%= userIndex.last_name %></h6>
         </div>
