@@ -50,18 +50,19 @@
  margin:8px;
  border-radius: 12px;
  background-color: rgb(206, 206, 206);
+ background-size: cover;
+ background-position: center;
 }
 
-
 .mainIndexCard:hover{
-  box-shadow: 6px 6px   rgb(27, 27, 27);
-  border-radius: 0px;
+  box-shadow: $main-violet 5px 5px 5px;
+  border-radius: 10px;
   transition:1s;
 }
 
 #cardTitle{
   font-size:80%;
-  background-color: $sec-violet;
+  background-color: rgba(255, 255, 255, 0.233);
   padding:20px;
   position:absolute;
   top:70%;
@@ -69,7 +70,7 @@
   backdrop-filter: blur(5px);
 }
 .mainIndexCardContent{
-  background-color: $sec-violet;
+  background-color: rgba(247, 248, 249, 0.312);
   position: absolute;
   top: 450px;
   padding:20px;
