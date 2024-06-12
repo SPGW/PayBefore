@@ -38,8 +38,7 @@ puts 'Creating events'
 
 cloudinaryPhoto1 = URI.open("https://res.cloudinary.com/dz9wrleoq/image/upload/v1717615504/midjourney68_hospital_1_v6wb03.png")
 1.times do |d|
-  event = Event.create(name: "Need help paying for Diabetes pen", goal_amount: rand(800..1000), current_amount: rand(200..799),
-  description: "The costs of using NovoLog PenFills increased tremendously and I am not always able to afford them", address: "Herderhof 2, Amsterdam", vault: vault_2, user: users.sample)
+  event = Event.create(opening_date:"2024-06-30", name: "Need help paying for Diabetes pen", goal_amount: rand(800..1000), current_amount: rand(200..799),description: "The costs of using NovoLog PenFills increased tremendously and I am not always able to afford them", address: "Herderhof 2, Amsterdam", vault: vault_2, user: users.sample)
   event.photo.attach(io: cloudinaryPhoto1, filename: "nes.png", content_type: "image/png")
   event.save
 end
@@ -62,7 +61,7 @@ end
 
 cloudinaryPhoto4 = URI.open("https://res.cloudinary.com/dz9wrleoq/image/upload/v1717621502/midjourney68_resi_1_fxr4it.png")
 1.times do |d|
-  event = Event.create(name: "Rent period is overdue", goal_amount: rand(800..1000), current_amount: rand(200..799),
+  event = Event.create(opening_date:"2024-06-28", name: "Rent period is overdue", goal_amount: rand(800..1000), current_amount: rand(200..799),
   description: "I recently moved to Amsterdam and lost half my funds therefore unable to pay for rent for the rest of the year",
   address: "Chestertonlaan 115, Amsterdam", vault: vault_1, user: users.sample)
   event.photo.attach(io: cloudinaryPhoto4, filename: "nes.png", content_type: "image/png")
@@ -79,7 +78,7 @@ end
 
 cloudinaryPhoto6 = URI.open("https://res.cloudinary.com/dz9wrleoq/image/upload/v1717622024/midjourney68_education_1_jlbtfv.png")
 1.times do |d|
-  event = Event.create(name: "Medical books for Summer 2024 period", goal_amount: rand(800..1000), current_amount: rand(200..799), description: "I recently started Medical school at the VU Amsterdam and the cost of books is putting a lot of pressure on my semester budget",
+  event = Event.create(opening_date:"2024-06-29", name: "Medical books for Summer 2024 period", goal_amount: rand(800..1000), current_amount: rand(200..799), description: "I recently started Medical school at the VU Amsterdam and the cost of books is putting a lot of pressure on my semester budget",
   address: "Wallestein 34, Amsterdam", vault: vault_3, user: users.sample)
   event.photo.attach(io: cloudinaryPhoto6, filename: "nes.png", content_type: "image/png")
   event.save

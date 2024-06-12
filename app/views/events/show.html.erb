@@ -16,12 +16,17 @@
           </div>
         <%# // progress bar %>
 
-
         <%# event title %>
         <div class=" d-flex justify-content-center mt-3">
           <div class="ms-3"><h3>Event:<strong></strong> <%= @event.name%> </h3></div>
         </div>
         <%# //event title %>
+
+                <%# event date: %>
+        <div class=" d-flex justify-content-center mt-3">
+          <p><strong>Date:</strong> <%= @event.opening_date %></p>
+        </div>
+        <%# //event date %>
 
         <%# event description: %>
         <div class=" d-flex justify-content-center mt-3">

@@ -2,3 +2,17 @@
 @import "home";
 @import "dashboard";
 @import "checkout";
+
+
+.indexFlexContainerParent{
+  display:flex;
+}
+
+.indexFlexContainerChild{
+  color: $main-violet;
+width:150px;
+height:150px;
+margin: 20px;
+padding: 10px;
+border-radius: 20px;
+}

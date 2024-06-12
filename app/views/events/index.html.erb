@@ -54,4 +54,25 @@
           <% end %>
         <% end %>
   </div>
+
+  <hr>
+
+  <div class="indexFlexContainerParent">
+
+    <% if @successful_events.any? %>
+    <% @events.each do |e| %>
+    <% if e.current_amount > e.goal_amount    &&  Date.parse(e.opening_date) < @date %>
+    <div class="indexFlexContainerChild shadow">
+      <% userIndex2 = @users.find( e.user_id) %>
+      <h5> <%= userIndex2.first_name %> <%= userIndex2.last_name %></h5>
+      <h5>  raised: <%= e.goal_amount.to_i   %>€ on <%= Time.parse(e.opening_date).strftime('%B %dth %Y') %></h5>
+      <% end %>
+    <% end %>
+    </div>
+    <% else %>
+    <div class="d-flex justify-content-center mt-3" style="margin-left:490px;margin-bottom:50px;">
+    <h3>no success stories yet...</h3>
+        </div>
+    <% end %>
+  </div>
 </div>

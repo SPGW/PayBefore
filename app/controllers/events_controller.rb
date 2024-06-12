@@ -1,13 +1,18 @@
 class EventsController < ApplicationController
   # before_action :set_event, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
+  require 'date'
 
   def index
     @backCounter = 0
     @events = Event.all.order(:created_at)
+    # @events_completed = Event.where("current_amount > goal_amount"   &&  Date.parse(opening_date:) < Date.today)
+    @successful_events = Event.select { |e| e.current_amount > e.goal_amount   &&  Date.parse(e.opening_date) < Date.today}
     @vaults = Vault.all.order(:created_at)
     @users = User.all
     @donations = Donation.all
+    @date = Date.today
+
   end
 
   def show
