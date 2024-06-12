@@ -106,3 +106,17 @@ font-size: 80px;
 .span-title {
   font-size: 25px;
 }
+
+.dashboard-button-text.white-text {
+  color: #ffffff !important;
+}
+
+.success-buttons-container {
+  display: flex;
+  justify-content: space-between; /* Adjust as needed: space-around, space-evenly, etc. */
+  gap: 10px; /* Adjust the spacing between buttons */
+}
+
+.successFlexParent {
+  flex: 1; /* Ensure each button takes equal width. Adjust as needed */
+}

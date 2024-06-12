@@ -30,7 +30,7 @@
 
         <%# event description: %>
         <div class=" d-flex justify-content-center mt-3">
-          <p><strong>Description: </strong> <%= @event.description.capitalize %>.</p>
+          <p><strong>Description: </strong> <%= @event.description %>.</p>
         </div>
         <%# //event description %>
 
@@ -68,7 +68,7 @@
   <%= simple_form_for @donation, url: donations_path do |f| %>
     <%= f.hidden_field :event_id, value: @event.id %>
     <%= f.input :contribution, label: 'Donation amount', hint: '(type in desired donation amount)', required: true %>
-    <%= f.submit "Donate Now!", class: "btn btn-sm btn-primary btn-block mt-2" %>
+    <%= f.submit "Donate Now!", class: "nav-link text-light login-button mx-3" %>
   <% end %>
 
   <hr>

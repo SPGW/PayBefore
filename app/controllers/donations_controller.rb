@@ -38,6 +38,9 @@ class DonationsController < ApplicationController
     @donation = Donation.find_by(id: params[:id])
     paymentIntent = Stripe::PaymentIntent.retrieve(@donation.payment_intent_id.split("_secret")[0])
     @donation.status = paymentIntent.status
+    if @donation.status == 'succeeded'
+      @donation.is_complete = true
+    end
     @donation.save
 
     if @donation.status == 'succeeded' && @donation.event_id?

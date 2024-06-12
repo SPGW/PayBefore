@@ -43,6 +43,7 @@ cloudinaryPhoto1 = URI.open("https://res.cloudinary.com/dz9wrleoq/image/upload/v
   event.save
 end
 sleep(1)
+<<<<<<< homepageticker
 # cloudinaryPhoto2 = URI.open("https://res.cloudinary.com/dz9wrleoq/image/upload/v1717619363/midjourney68_hospital_3_uqedwh.png")
 # 1.times do |d|
 #   event = Event.create(name: Faker::Quotes::Shakespeare.hamlet_quote, goal_amount: rand(800..1000), current_amount: rand(200..799),
@@ -58,24 +59,46 @@ sleep(1)
 #   event.photo.attach(io: cloudinaryPhoto3, filename: "nes.png", content_type: "image/png")
 #   event.save
 # end
+=======
 
-cloudinaryPhoto4 = URI.open("https://res.cloudinary.com/dz9wrleoq/image/upload/v1717621502/midjourney68_resi_1_fxr4it.png")
+cloudinaryPhoto2 = URI.open("https://media.istockphoto.com/id/1409722748/photo/students-raising-hands-while-teacher-asking-them-questions-in-classroom.jpg?b=1&s=170667a&w=0&k=20&c=wmjzzESyHcSDFXYI1qzngse-EIj7aBMfebEaqjT8cjM=")
+1.times do |d|
+  event = Event.create(opening_date:"2024-07-10", name: "Help me pay for my education", goal_amount: rand(800..1000), current_amount: rand(200..799),description: "Please help me pay for my education. I will be attending Le Wagon's coding bootcamp in july, and I need some help paying the tuition fee. All donations will go towards my education and so that I can become a programmer!", address: "IJsbaanpad 9, 1076 CV Amsterdam", vault: vault_3, user: users.sample)
+  event.photo.attach(io: cloudinaryPhoto1, filename: "nes.png", content_type: "image/png")
+  event.save
+end
+sleep(1)
+>>>>>>> master
+
+cloudinaryPhoto3 = URI.open("https://res.cloudinary.com/dz9wrleoq/image/upload/v1717621502/midjourney68_resi_1_fxr4it.png")
 1.times do |d|
   event = Event.create(opening_date:"2024-06-28", name: "Rent period is overdue", goal_amount: rand(800..1000), current_amount: rand(200..799),
   description: "I recently moved to Amsterdam and lost half my funds therefore unable to pay for rent for the rest of the year",
   address: "Chestertonlaan 115, Amsterdam", vault: vault_1, user: users.sample)
+  event.photo.attach(io: cloudinaryPhoto3, filename: "nes.png", content_type: "image/png")
+  event.save
+end
+sleep(1)
+
+cloudinaryPhoto4 = URI.open("https://media.istockphoto.com/id/1146120013/photo/young-man-fixing-a-leak-under-the-bathroom-sink.jpg?s=612x612&w=0&k=20&c=_5OmB9-zzKEZLCKRQQpVgI353G2SnhjLhpikaMOUCZ0=")
+1.times do |d|
+  event = Event.create(opening_date:"2024-07-22", name: "My Boiler Broke", goal_amount: rand(800..1000), current_amount: rand(200..799),
+  description: "The boiler in my house recently broke and I have no hot water. I have 12 children and they need hot water to bathe. Please help me pay for a new boiler so that my children dont stink.",
+  address: "Vondelpark, Amsterdam", vault: vault_1, user: users.sample)
   event.photo.attach(io: cloudinaryPhoto4, filename: "nes.png", content_type: "image/png")
   event.save
 end
 sleep(1)
 
-# cloudinaryPhoto5 = URI.open("https://res.cloudinary.com/dz9wrleoq/image/upload/v1717621502/midjourney68_resi_2_syq8zn.png")
-# 1.times do |d|
-#   event = Event.create(name: Faker::Quotes::Shakespeare.hamlet_quote, goal_amount: rand(800..1000), current_amount: rand(200..799),
-#   description: Faker::Company.bs, address: Faker::Address.full_address, vault: vault_1, user: users.sample)
-#   event.photo.attach(io: cloudinaryPhoto5, filename: "nes.png", content_type: "image/png")
-#   event.save
-# end
+cloudinaryPhoto5 = URI.open("https://media.istockphoto.com/id/1165032242/photo/hispanic-girl-at-medical-appointment-with-a-broken-arm.jpg?s=612x612&w=0&k=20&c=36_gEv06d7q1aN-FTLKluT5wfzTIXVDcIgYcfrG4QCs=")
+1.times do |d|
+  event = Event.create(opening_date:"2024-06-30", name: "My child has a broken arm", goal_amount: rand(800..1000), current_amount: rand(200..799),
+  description: "My child has broken their arm and I can not afford the medical bills. Please help me pay for it. I am hosting a fundraising event on the 30th if anyone would like to attend. I am a single parent please please please help me and my child.",
+  address: "De Boelelaan 1117, Amsterdam", vault: vault_2, user: users.sample)
+  event.photo.attach(io: cloudinaryPhoto5, filename: "nes.png", content_type: "image/png")
+  event.save
+end
+sleep(1)
 
 cloudinaryPhoto6 = URI.open("https://res.cloudinary.com/dz9wrleoq/image/upload/v1717622024/midjourney68_education_1_jlbtfv.png")
 1.times do |d|
@@ -86,14 +109,14 @@ cloudinaryPhoto6 = URI.open("https://res.cloudinary.com/dz9wrleoq/image/upload/v
 end
 sleep(1)
 
-# cloudinaryPhoto7 = URI.open("https://res.cloudinary.com/dz9wrleoq/image/upload/v1717622024/midjourney68_education_2_zvqbse.png")
-# 1.times do |d|
-#   event = Event.create(name: Faker::Quotes::Shakespeare.hamlet_quote, goal_amount: rand(800..1000), current_amount: rand(200..799),
-#   description: Faker::Company.bs, address: Faker::Address.full_address, vault: vault_3, user: users.sample)
-#   event.photo.attach(io: cloudinaryPhoto7, filename: "nes.png", content_type: "image/png")
-#   event.save
-# end
-
+cloudinaryPhoto7 = URI.open("https://media.istockphoto.com/id/1370552070/photo/portrait-of-a-young-woman-holding-her-hat-on-graduation-day.jpg?s=612x612&w=0&k=20&c=PzYNl41EcEVqw8TiyOpU18sYjcjdRMCGGkqsxX0Pc-g=")
+1.times do |d|
+  event = Event.create(opening_date:"2024-07-12th", name: "University is expensive", goal_amount: rand(800..1000), current_amount: rand(200..799), description: "My friend recently started university and the costs are adding up. There are many students that need help affording their education so I wanted to create a fundraising event for all of them. Our event will be on the 12th of july, and will be free to attend. If you want to donate on this page you can. All donations will go to Paybefore's Education Vault! ",
+  address: "Amsterdam Science Park 904, Amsterdam", vault: vault_3, user: users.sample)
+  event.photo.attach(io: cloudinaryPhoto7, filename: "nes.png", content_type: "image/png")
+  event.save
+end
+sleep(1)
 
 #-----------------------------------------------------------------------------------DONATIONS
 

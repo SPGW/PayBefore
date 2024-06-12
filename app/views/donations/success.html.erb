@@ -19,10 +19,11 @@
       <div class="checkout-details">
         <h2>Order Details</h2>
         <% if @donation.event_id? %>
-          <p>You have donated to <%= @donation.event.user.first_name %>'s event <%= @donation.event.name %></p>
+          <p>You have donated to
+          <strong><%= @donation.event.user.first_name %>'s</strong> event <strong><%= @donation.event.name %></strong></p>
         <% end %>
         <% if @donation.vault_id? %>
-          <p>You have donated to Paybefore's <%= @donation.vault.name %> vault</p>
+          <p>You have donated to Paybefore's <strong><%= @donation.vault.name %></strong> vault</p>
         <% end %>
 
         <hr>
@@ -58,4 +59,52 @@
     <%# <% else %>
     <%# <% end %>
   <%# // order details %>
+
+<div class="success-buttons-container">
+
+<%# if donating to event: %>
+
+  <% if @donation.event_id? %>
+    <div class="successFlexParent">
+      <div class="rounded-pill vaultFlexChild">
+        <%= link_to event_path(@donation.event), class: "text-decoration-none", style: "width:100%; display:block;" do %>
+          <button style="width:100%;" class="border rounded-pill dashboard-button dashboard-button-text">
+            <span class="success-button-text">View event</span>
+            <svg class="dashboard-button-arrow" xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12 5l7 7-7 7"/></svg>
+          </button>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+<%# //if donating to event %>
+
+<%# if donating to a vault %>
+
+<% if @donation.vault_id? %>
+    <div class="successFlexParent">
+      <div class="rounded-pill vaultFlexChild">
+        <%= link_to vault_path(@donation.vault), class: "text-decoration-none", style: "width:100%; display:block;" do %>
+          <button style="width:100%;" class="border rounded-pill dashboard-button dashboard-button-text">
+            <span class="success-button-text">View vault</span>
+            <svg class="dashboard-button-arrow" xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12 5l7 7-7 7"/></svg>
+          </button>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+
+<%# //if donating to a vault %>
+
+  <div class="successFlexParent">
+    <div class="rounded-pill vaultFlexChild">
+      <%= link_to dashboard_path, class: "text-decoration-none", style: "width:100%; display:block;" do %>
+        <button style="width:100%;" class="border rounded-pill dashboard-button dashboard-button-text">
+          <span class="success-button-text">View donations dashboard</span>
+          <svg class="dashboard-button-arrow" xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12 5l7 7-7 7"/></svg>
+        </button>
+      <% end %>
+    </div>
+  </div>
+</div>
+
 </div>
