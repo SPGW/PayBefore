@@ -21,12 +21,13 @@ export default class extends Controller {
       zoom: 12,
       maxBounds: bounds
     })
+
     this.#fitMapToMarkers()
     this.#addMarkersToMap()
   }
 
   #addMarkersToMap() {
-      new mapboxgl.Marker()
+      new mapboxgl.Marker({ "color": "#6b67ed" })
         .setLngLat([ this.markersValue.lng, this.markersValue.lat ])
         .addTo(this.map)
   }
