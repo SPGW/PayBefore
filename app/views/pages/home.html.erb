@@ -19,27 +19,28 @@
         <div class=" item-about">
           <h2>Mission</h2>
           <p>
-          PayBefore is dedicated to help those who find themselves trapped in an endless <strong>downwards spiral of financial obligations.</strong> <br><br>
+          PayBefore is dedicated to help those who find themselves trapped in an endless <strongclass="text-dark">downwards spiral of financial obligations.</strong> <br><br>
           A large percent of the population worldwide struggle with unpaid bills at the end of the month; not due to lack of effort but simply because of external circumstances. The core mission of this project is to help those who need help the most by building a bridge between anonymous people. <br><br>
 
-          PayBefore helps anyone who wants to regain control of their <strong>financial well-being</strong> with donations from strangers.</strong>
+          PayBefore helps anyone who wants to regain control of their <strong class="text-dark">financial well-being</strong> with donations from strangers.</strong>
           <br><br>
-          <strong>Everyone needs help </strong>at some point, just  not at the same time. Help someone in need today.<br><br>
+          <strong class="text-dark">Everyone needs help </strong>at some point, just  not at the same time. Help someone in need today.<br><br>
           </p>
         </div>
       </div>
 
 
     <%# Vaults %>
-    <div class="container mt-5">
+  <div class="container mt-5">
       <%= render partial: "vaults/vaults" %>
     </div>
 
       <%# Ticker %>
-    <div style="width:960px" class="d-flex row p-5 justify-content-center  pt-1 tickerFlexParent">
+    <div style="" class="d-flex row p-5 justify-content-center  pt-1 tickerFlexParent">
 
-       <div  class="shadow tickerFlexChild col  ">
-        <h3>Total amount raised:</h3>
+       <div  class="tickerFlexChild col d-flex justify-content-evenly">
+       <div>
+        <h3 class="fw-bold fs-5">Total amount raised:</h3>
         <% total_amount_raised = 0 %>
         <% @events.each do |e| %>
           <% total_amount_raised += e.current_amount %>
@@ -47,18 +48,22 @@
         <% @vaults.each do |v| %>
           <% total_amount_raised += v.current_amount_vault %>
         <% end %>
-        <h2><%= total_amount_raised.to_i %>€</h2>
+       </div>
+       <div>
+        <h3 class="fs-5"><%= total_amount_raised.to_i %>€</h3>
+       </div>
        </div>
 
-        <div class="shadow  tickerFlexChild col">
+        <div class="tickerFlexChild col d-flex justify-content-evenly">
         <% total_amount_donations = 0 %>
-        <h3>Number of donations:</h3>
-        <h2><%= @donations.size %></h2>
+        <h3 class="fw-bold fs-5">Number of donations:</h3>
+        <h3 class="fs-5"><%= @donations.size %></h3>
         </div>
 
-       <div class="shadow  tickerFlexChild col">
-       <h3>Events completed:</h3>
-       <h2><%= @successful_events.size %></h2>
+       <div class="tickerFlexChild col d-flex justify-content-evenly">
+       <h3 class="fw-bold fs-5">Events completed:</h3>
+       <h3 class="fs-5"><%= @successful_events.size %></h3>
       </div>
     </div>
+
 </div>
