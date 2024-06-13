@@ -1,39 +1,40 @@
-<div class="container">
-  <h1>New event</h1>
+<div class="container form-container">
+  <div class="form-section">
+    <h1>Create an event</h1>
+    <p>Create a new event! Connect with a compassionate community dedicated to helping your cause.</p>
+    <%= simple_form_for @event do |e| %>
+      <div class="form-group">
+        <%= e.input :name, hint: 'Give a descriptive title for your event' %>
+      </div>
 
-  <%= simple_form_for event do |e| %>
-    <div class="raw main">
-        <%= e.input :name, hint: 'please give a descriptive title for your event' %>
-    </div>
+      <div class="form-group">
+        <%= e.input :description, hint: 'Describe your event and why you are raising money' %>
+      </div>
 
-        <div class="raw main">
-      <%= e.input :address, hint: 'location of the event' %>
-    </div>
+      <div class="form-row">
+        <div class="col-md-6">
+          <%= e.input :address, hint: 'Where is your event located' %>
+        </div>
+        <div class="col-md-6">
+          <%= e.input :opening_date, as: :string, input_html: { data: { controller: "datepicker" } } %>
+        </div>
+      </div>
 
-    <div class="raw main">
-      <%= e.input :description, hint: 'describe why you are creating this raising event' %>
-    </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <%= e.input :photo, as: :file %>
+        </div>
+        <div class="form-group col-md-6">
+          <%= e.input :vault_id, collection: @vaults, hint: 'Housing, Medical or Education', value_method: :id %>
+        </div>
+      </div>
 
-        <div class="col-5">
-      <%= e.input :photo, as: :file %>
-    </div>
+      <div class="form-group">
+        <%= e.input :goal_amount, hint: 'How much money you would like to raise' %>
+      </div>
 
-    <div class="raw main">
-      <%= e.input :goal_amount, hint: 'the amount of money you would like to raise' %>
-    </div>
-
-            <div class="raw main">
-      <%= e.input :vault_id, collection: @vaults, hint: 'Housing, Medical or Education', value_method: :id %>
-    </div>
-
-    <div class="raw main">
-      <%= e.input :opening_date,
-        as: :string,
-        input_html: { data: { controller: "datepicker" } } %>
-    </div>
-
-        <%= e.submit class: 'border rounded-pill custom-class' %>
-    </div>
-  <% end %>
-
+      <%= e.submit 'Create Event', class: "new-form-submit nav-link text-light login-button" %>
+    <% end %>
+  </div>
+  <div class="image-section d-none d-md-block col-md-6"></div>
 </div>
