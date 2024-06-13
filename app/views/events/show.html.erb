@@ -26,7 +26,7 @@
 
                 <%# event date: %>
           <div class="  mt-5">
-            <p><span class="text-black"><strong><i class="fa-solid fa-calendar-days me-2"></i></strong></span> <%= @event.opening_date %></p>
+            <p><span class="text-black"><strong><i class="fa-solid fa-calendar-days me-2"></i></strong></span> <%= Time.parse(@event.opening_date).strftime('%B %dth %Y') %></p>
           </div>
           <%# //event date %>
 
