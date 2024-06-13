@@ -1,40 +1,39 @@
 <div class="container" style="margin-top: 50px">
 
 <%# bannertest %>
-
   <div class="home-view">
     <div class="text-center">
       <div class="p-5">
+      <% if @vault.name == "Housing" %>
+            <i class="fa-solid fa-people-roof fa-2xl"></i>
+      <% elsif @vault.name == "Education" %>
+            <i class="fa-solid fa-school fa-2xl"></i>
+      <% else %>
+        <i class="fa-solid fa-hand-holding-medical fa-2xl"></i>
+      <% end %>
         <h1><%= @vault.name %></h1>
         <p class="pt-5">
           <%= @vault.description %>
         </p>
-
       </div>
     </div>
   </div>
 
-
-        <div class="">
-          <div class="progress" role="progressbar" aria-label="Success example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
-            <div class="progress-bar  text-dark" style="width: <%= (@vault.current_amount_vault/@vault.donation_amount) * 100 %>%"></div>
-          </div>
-
-
-        <div class="d-flex justify-content-between p-3">
-          <div><h6>Current Donation: €<%= @vault.current_amount_vault %>0</h6></div>
-          <div><h6>Donation Goal: €<%= @vault.donation_amount %>0</h6></div>
-
-        </div>
-
+    <div >
+      <div class="progress" role="progressbar" aria-label="Success example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+        <div class="progress-bar  text-dark" style="width: <%= (@vault.current_amount_vault / @vault.donation_amount) * 100 %>%"></div>
       </div>
 
-
+    <div class="d-flex justify-content-between p-3">
+      <div><h6>Current Donations: €<%= @vault.current_amount_vault.to_i %></h6></div>
+      <div><h6>Donation Goal: €<%= @vault.donation_amount.to_i %></h6></div>
+    </div>
+  </div>
 
   <%= simple_form_for @donation do |f| %>
   <%= f.hidden_field :vault_id, value: @vault.id %>
-    <%= f.input :contribution %>
-    <%= f.submit "submit", class: "nav-link text-light login-button mx-3" %>
+    <%= f.input :contribution,  hint: '(type in desired amount followed by .00)' %>
+    <%= f.submit "Donate now!", class: "nav-link text-light login-button mx-3" %>
   <% end %>
 <br>
 
