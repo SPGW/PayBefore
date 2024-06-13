@@ -169,27 +169,37 @@
               <% end %>
           </div>
 
-          <div class="attendees-sec bg-success p-3">
-            <h4>Attendees:</h4>
-            <div class="flexAttendeesParent" >
+
+          <%# attendees %>
+            <div class="attendees-sec bg-success p-3">
+              <h4>Attendees:</h4>
+              <div class="flexAttendeesParent">
                 <% if @attendees.size > 0 %>
-                <% @attendees.each do |user|  %>
-                <div class="flexAttendeesChild d-flex">
-                    <% attendee = @users.find(user.user_id) %>
-                    <img style="height:50px; border-radius: 50%" src=<%= attendee.profile_picture %> alt="">
-                    <h6 class="mt-3 ms-2"><%= attendee.first_name %> <%= attendee.last_name %><h6>
-                    <% end %>
-                </div>
-                      <% else %>
-                      <h6 class = "d-flex justify-content-center">No atteendes on this event yet...</h6>
-                      <% end %>
+                  <% @attendees.last(2).reverse.each do |user| %>
+                    <div class="flexAttendeesChild d-flex mb-2">
+                      <% attendee = @users.find(user.user_id) %>
+                      <img style="height:50px; border-radius: 50%" src="<%= attendee.profile_picture %>" alt="">
+                      <h6 class="mt-3 ms-2"><%= attendee.first_name %> <%= attendee.last_name %></h6>
+                    </div>
+                  <% end %>
+                  <% if @attendees.size > 2 %>
+                    <h6 class="mt-3 ms-2">and <%= @attendees.size - 2 %> others</h6>
+                  <% end %>
+                <% else %>
+                  <h6 class="d-flex justify-content-center">No attendees at this event yet...</h6>
+                <% end %>
+              </div>
             </div>
+
+
+
+            <%# join button %>
               <div data-controller="joinbtn">
                     <%= simple_form_for [@event, @attendee] do |f| %>
                         <% if @existed_attendee %>
                       <%= f.submit "Joined", class: "nav-link text-light login-button btn btn-sm btn-primary btn-block mt-2 rounded-pill disabled" %>
                     <% else %>
-                      <%= f.submit "Join", class: " nav-link text-light login-button" %>
+                      <%= f.submit "Join", class: " w-100 nav-link text-light login-button" %>
                     <% end %>
                     <% end %>
               </div>
