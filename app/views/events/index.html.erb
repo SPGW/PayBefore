@@ -1,78 +1,76 @@
-<div class= "parentDiv ">
+
+<br>
+<br>
 <br>
 <br>
 <br>
 
-<%# vault button %>
-<div class="vaultFlexParent mt-5">
-  <% @vaults.each do |v| %>
+<%# progress bars vaults %>
+<h1 style="  height:120px; display: flex;  justify-content: center;  align-items: center;  text-align: center; margin:2px;  ">Events</h1>
+
+<div class="container mt-2" style="width:82%;">
+  <%= render partial: "vaults/vaults_minimized" %>
+</div>
+
+<div class= "parentDiv">
+  <%# new event button %>
+  <div class="vaultFlexParent">
     <div class="rounded-pill vaultFlexChild">
-      <%= link_to vault_path(v), class: "text-decoration-none", style: "width:100%; display:block;" do %>
-        <button style="width:100%;" class="border rounded-pill bg-light">
-          <span class="text-muted"><%= v.name %> vault: <%= v.current_amount_vault.to_i %>€</span>
+      <%= link_to new_event_path, class: "text-decoration-none", style: "width:100%; display:block;" do %>
+        <button style=" width:100%;" class="border rounded-pill ">
+        <span style="color:white;" class="">Create an event</span>
+        <svg xmlns="http://www.w3.org/2000/svg"  height="16" width="16" viewBox="0 0 24 24" fill="none" stroke="rgb(255,255,255)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12 5l7 7-7 7"/></svg>
         </button>
       <% end %>
+        </div>
+  </div>
+
+
+  <%# cards %>
+    <div  class="indexGridContainer mb-3 mt-0" >
+        <% @events.each do |event| %>
+          <%= link_to event, :style=>'color: black;', :action => 'go' do %>
+
+        <div class="mainIndexCard" style="background-image: linear-gradient(rgba(0,0,0,0.15), rgba(255,255,255,1)),
+        url('<%= cl_image_path event.photo.key, height: 320, crop: :scale %>')"
+        >
+          <div id="cardTitle" class="d-inline-flex ">
+            <h3><%= event.name %></h3>
+          </div>
+
+          <div class="mainIndexCardContent">
+            <h4><i class="fa-solid fa-hand-holding-dollar eventIcon"></i><%= event.goal_amount.to_i %>€</h4>
+            <% specific_vault = @vaults.find(event.vault_id) %>
+            <h4><i class="fa-solid fa-unlock eventIcon"></i><%= specific_vault.name %></h4>
+              <h4><i class="fa-solid fa-location-dot eventIcon"></i><%= event.address %></h4>
+              <% userIndex = @users.find( event.user_id) %>
+              <h6><%= userIndex.first_name %> <%= userIndex.last_name %></h6>
+          </div>
+        </div>
+            <% end %>
+          <% end %>
     </div>
-  <% end %>
-</div>
-<%# vault button %>
 
-<%# new new event button %>
-<div class="vaultFlexParent">
-  <div class="rounded-pill vaultFlexChild">
-    <%= link_to new_event_path, class: "text-decoration-none", style: "width:100%; display:block;" do %>
-      <button style="width:100%;" class="border rounded-pill bg-light">
-      <span class="text-muted">Create an event</span>
-      <svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12 5l7 7-7 7"/></svg>
-      </button>
-    <% end %>
-      </div>
-</div>
+    <hr>
+<h2 style="  height:80px; display: flex;  justify-content: center;  align-items: center;  text-align: center; margin:2px;  ">Previous success stories</h2>
+  <%# success stories %>
+    <div class="indexFlexContainerParent" style="margin-bottom:20px;">
+      <% if @successful_events.any? %>
+        <% @events.each do |e| %>
+          <% if e.current_amount > e.goal_amount    &&  Date.parse(e.opening_date) < @date %>
+            <div style="height:230px; padding: 15px;px;" class="indexFlexContainerChild shadow">
+            <% userIndex = @users.find( e.user_id) %>
+            <img style="height:50px; border-radius: 50%" src=<%= userIndex.profile_picture %> alt="">
 
-<%# new new event button %>
-
-  <div  class="indexGridContainer mb-5" >
-      <% @events.each do |event| %>
-        <%= link_to event, :style=>'color: black;', :action => 'go' do %>
-
-      <div class="mainIndexCard" style="background-image: linear-gradient(rgba(0,0,0,0.15), rgba(255,255,255,1)),
-      url('<%= cl_image_path event.photo.key, height: 320, crop: :scale %>')"
-      >
-        <div id="cardTitle" class="d-inline-flex ">
-          <h3><%= event.name %></h3>
-        </div>
-
-        <div class="mainIndexCardContent">
-          <h4><i class="fa-solid fa-hand-holding-dollar eventIcon"></i><%= event.goal_amount.to_i %>€</h4>
-          <% specific_vault = @vaults.find(event.vault_id) %>
-          <h4><i class="fa-solid fa-unlock eventIcon"></i><%= specific_vault.name %></h4>
-            <h4><i class="fa-solid fa-location-dot eventIcon"></i><%= event.address %></h4>
-            <% userIndex = @users.find( event.user_id) %>
-            <h6><%= userIndex.first_name %> <%= userIndex.last_name %></h6>
-        </div>
-      </div>
+            <h6 > <%= userIndex.first_name %> <%= userIndex.last_name %></h6>
+            <h5 style="color:rgb(90,90,90)">  Raised: <%= e.goal_amount.to_i   %>€ on <%= Time.parse(e.opening_date).strftime('%B %dth %Y') %></h5>
+            </div>
           <% end %>
         <% end %>
-  </div>
-
-  <hr>
-
-  <div class="indexFlexContainerParent">
-
-    <% if @successful_events.any? %>
-    <% @events.each do |e| %>
-    <% if e.current_amount > e.goal_amount    &&  Date.parse(e.opening_date) < @date %>
-    <div class="indexFlexContainerChild shadow">
-      <% userIndex2 = @users.find( e.user_id) %>
-      <h5> <%= userIndex2.first_name %> <%= userIndex2.last_name %></h5>
-      <h5>  raised: <%= e.goal_amount.to_i   %>€ on <%= Time.parse(e.opening_date).strftime('%B %dth %Y') %></h5>
+      <% else %>
+      <div class="d-flex justify-content-center mt-3" style="margin-left:490px;margin-bottom:50px;">
+      <h3>no success stories yet...</h3>
+          </div>
       <% end %>
-    <% end %>
     </div>
-    <% else %>
-    <div class="d-flex justify-content-center mt-3" style="margin-left:490px;margin-bottom:50px;">
-    <h3>no success stories yet...</h3>
-        </div>
-    <% end %>
-  </div>
 </div>
