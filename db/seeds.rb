@@ -36,7 +36,7 @@ puts 'creating vaults'
 #-----------------------------------------------------------------------------------EVENTS
 puts 'Creating events'
 
-cloudinaryPhoto1 = URI.open("https://res.cloudinary.com/dz9wrleoq/image/upload/v1717615504/midjourney68_hospital_1_v6wb03.png")
+cloudinaryPhoto1 = URI.open("https://media.istockphoto.com/id/1393991963/photo/obese-fat-man-preparing-semaglutide-ozempic-injection-control-blood-sugar-levels.jpg?s=612x612&w=0&k=20&c=l89QanAXiWiYUw-t7cITjTLpikaL1AlcwEE1eX_pMek=")
 1.times do |d|
   event = Event.create!(opening_date:"2024-06-30", name: "Need help paying for Diabetes pen", goal_amount: rand(800..1000), current_amount: rand(200..799),description: "The costs of using NovoLog PenFills increased tremendously and I am not always able to afford them", address: "Herderhof 2, Amsterdam", vault: vault_2, user: users.sample)
   event.photo.attach(io: cloudinaryPhoto1, filename: "nes.png", content_type: "image/png")
@@ -44,15 +44,15 @@ cloudinaryPhoto1 = URI.open("https://res.cloudinary.com/dz9wrleoq/image/upload/v
 end
 sleep(1)
 
-cloudinaryPhoto2 = URI.open("https://media.istockphoto.com/id/1409722748/photo/students-raising-hands-while-teacher-asking-them-questions-in-classroom.jpg?b=1&s=170667a&w=0&k=20&c=wmjzzESyHcSDFXYI1qzngse-EIj7aBMfebEaqjT8cjM=")
+cloudinaryPhoto2 = URI.open("https://plus.unsplash.com/premium_photo-1682284353484-4e16001c58eb?q=80&w=2970&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
 1.times do |d|
   event = Event.create!(opening_date:"2024-07-10", name: "Help me pay for my education", goal_amount: rand(800..1000), current_amount: rand(200..799),description: "Please help me pay for my education. I will be attending Le Wagon's coding bootcamp in july, and I need some help paying the tuition fee. All donations will go towards my education and so that I can become a programmer!", address: "IJsbaanpad 9, 1076 CV Amsterdam", vault: vault_3, user: users.sample)
-  event.photo.attach(io: cloudinaryPhoto1, filename: "nes.png", content_type: "image/png")
+  event.photo.attach(io: cloudinaryPhoto2, filename: "nes.png", content_type: "image/png")
   event.save
 end
 sleep(1)
 
-cloudinaryPhoto3 = URI.open("https://res.cloudinary.com/dz9wrleoq/image/upload/v1717621502/midjourney68_resi_1_fxr4it.png")
+cloudinaryPhoto3 = URI.open("https://plus.unsplash.com/premium_photo-1677653126467-fb0fc59a9cde?q=80&w=2912&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
 1.times do |d|
   event = Event.create!(opening_date:"2024-06-28", name: "Rent period is overdue", goal_amount: rand(800..1000), current_amount: rand(200..799),
   description: "I recently moved to Amsterdam and lost half my funds therefore unable to pay for rent for the rest of the year",
@@ -82,7 +82,7 @@ cloudinaryPhoto5 = URI.open("https://media.istockphoto.com/id/1165032242/photo/h
 end
 sleep(1)
 
-cloudinaryPhoto6 = URI.open("https://res.cloudinary.com/dz9wrleoq/image/upload/v1717622024/midjourney68_education_1_jlbtfv.png")
+cloudinaryPhoto6 = URI.open("https://images.unsplash.com/photo-1503676382389-4809596d5290?q=80&w=2976&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
 1.times do |d|
   event = Event.create!(opening_date:"2024-06-29", name: "Medical books for Summer 2024 period", goal_amount: rand(800..1000), current_amount: rand(200..799), description: "I recently started Medical school at the VU Amsterdam and the cost of books is putting a lot of pressure on my semester budget",
   address: "Wallestein 34, Amsterdam", vault: vault_3, user: users.sample)
@@ -102,7 +102,7 @@ sleep(1)
 
 cloudinaryPhoto8 = URI.open("https://media.ksdk.com/assets/KSDK/images/694f3133-d242-4be8-890c-8617038fe28e/694f3133-d242-4be8-890c-8617038fe28e_750x422.jpg")
 1.times do |d|
-  event = Event.create!(opening_date:"2024-07-10", name: "Amsterdam Food Drive", goal_amount: rand(800..1000), current_amount: rand(200..799), description: "We are hosting a food drive in amsterdam on the 10th at Museumplein. Anyone can attend and we will be acceping donations online and in person! Bring any canned or nonperishable foods. ",
+  event = Event.create!(opening_date:"2024-07-10", name: "Community Food Drive", goal_amount: rand(800..1000), current_amount: rand(200..799), description: "We are hosting a food drive in amsterdam on the 10th at Museumplein. Anyone can attend and we will be acceping donations online and in person! Bring any canned or nonperishable foods. ",
   address: "Museumplein, Amsterdam", vault: vault_1, user: users.sample)
   event.photo.attach(io: cloudinaryPhoto8, filename: "nes.png", content_type: "image/png")
   event.save
@@ -129,13 +129,58 @@ sleep(1)
 
 #-----------------------------------------------------------------------------------COMPLEATED EVENTS
 
-puts 'Creating compleated events'
+puts 'Creating completed events'
 
-cloudinaryPhoto11 = URI.open("https://upload.wikimedia.org/wikipedia/commons/c/c1/Academisch_Medisch_Centrum_Amsterdam_001.jpg")
+cloudinaryCompletePhoto1 = URI.open("https://upload.wikimedia.org/wikipedia/commons/c/c1/Academisch_Medisch_Centrum_Amsterdam_001.jpg")
 1.times do |d|
-  event = Event.create!(opening_date:"2024-04-12", name: "Amsterdam Medical Fundraiser", goal_amount: 1000, current_amount: 1001, description: "The University Van Amsterdam's Mediacl Fundraiser has successfully reached its goal of €1,000.00. Thank you everyone who donated!  ",
-  address: "Amsterdam Science Park 904, Amsterdam", vault: vault_2, user: users.sample)
-  event.photo.attach(io: cloudinaryPhoto11, filename: "nes.png", content_type: "image/png")
+  event = Event.create!(opening_date:"2024-05-12", name: "Amsterdam Medical Fundraiser", goal_amount: 1000, current_amount: 1001, description: "The University Van Amsterdam's Mediacl Fundraiser has successfully reached its goal of €1,000.00. Thank you everyone who donated!  ",
+  address: "Amsterdam Science Park 904, Amsterdam", vault: vault_2, user: olivia)
+  event.photo.attach(io: cloudinaryCompletePhoto1, filename: "nes.png", content_type: "image/png")
+  event.save
+end
+sleep(1)
+
+cloudinaryCompletePhoto2 = URI.open("https://images.unsplash.com/photo-1534483509719-3feaee7c30da?q=80&w=2970&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+1.times do |d|
+  event = Event.create!(opening_date:"2024-05-5", name: "Food Drive", goal_amount: 400, current_amount: 401, description: "The University Van Amsterdam's Food Drive Fundraiser has successfully reached its goal of €400.00. Thank you everyone who donated!  ",
+  address: "Amsterdam Science Park 904, Amsterdam", vault: vault_1, user: seth)
+  event.photo.attach(io: cloudinaryCompletePhoto2, filename: "nes.png", content_type: "image/png")
+  event.save
+end
+sleep(1)
+
+cloudinaryCompletePhoto3 = URI.open("https://images.unsplash.com/photo-1519475889208-0968e5438f7d?q=80&w=2974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+1.times do |d|
+  event = Event.create!(opening_date:"2024-05-22", name: "Amsterdam Housing Relief Program ", goal_amount: 2200, current_amount: 2201, description: "The University Van Amsterdam's Housing Relief Program has successfully reached its goal of €2,200.00. Thank you everyone who donated!  ",
+  address: "Amsterdam Science Park 904, Amsterdam", vault: vault_1, user: noah)
+  event.photo.attach(io: cloudinaryCompletePhoto3, filename: "nes.png", content_type: "image/png")
+  event.save
+end
+sleep(1)
+
+cloudinaryCompletePhoto4 = URI.open("https://images.unsplash.com/photo-1582719471384-894fbb16e074?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+1.times do |d|
+  event = Event.create!(opening_date:"2024-04-16", name: "Medical Bills Fundraiser", goal_amount: 800, current_amount: 801, description: "The University Van Amsterdam's Medical Fundraiser has successfully reached its goal of €800.00. Thank you everyone who donated!  ",
+  address: "Amsterdam Science Park 904, Amsterdam", vault: vault_2, user: joel)
+  event.photo.attach(io: cloudinaryCompletePhoto4, filename: "nes.png", content_type: "image/png")
+  event.save
+end
+sleep(1)
+
+cloudinaryCompletePhoto5 = URI.open("https://stichtingorion-live-8da22ddc27e544289d3-e7384ba.divio-media.com/filer_public_thumbnails/filer_public/18/76/18766f48-15be-4c0e-90b5-a883ce361e6e/ps_van_det_2.png__1920x1000_subsampling-2.png")
+1.times do |d|
+  event = Event.create!(opening_date:"2024-04-25", name: "Van Detschool's Tuition Fundraiser", goal_amount: 1500, current_amount: 1501, description: "Van Detschool's Tuition Fundraiser has successfully reached its goal of €1,500.00. Thank you everyone who donated!  ",
+  address: "IJsbaanpad 7, 1076 CV Amsterdam", vault: vault_3, user: maria)
+  event.photo.attach(io: cloudinaryCompletePhoto5, filename: "nes.png", content_type: "image/png")
+  event.save
+end
+sleep(1)
+
+cloudinaryCompletePhoto5 = URI.open("https://plus.unsplash.com/premium_photo-1686963590692-6ee248d29876?q=80&w=2970&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+1.times do |d|
+  event = Event.create!(opening_date:"2024-04-26", name: "School Supplies for my friend", goal_amount: 100, current_amount: 101, description: "My friend needed help paying for their children's school supplies. With your generous donations we were able to help them purchase all the supplies they needed. Thank you everyone who donated. ",
+  address: "IJsbaanpad 7, 1076 CV Amsterdam", vault: vault_3, user: ayax)
+  event.photo.attach(io: cloudinaryCompletePhoto5, filename: "nes.png", content_type: "image/png")
   event.save
 end
 sleep(1)
