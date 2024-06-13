@@ -1,114 +1,10 @@
-<div class="parentDiv">
-  <div style="height:100px;">
-    <hr>
+  <div style="height:150px;">
+
   </div>
-
-        <%# new code %>
-  <div class="col events-show-card shadow-sm m-1">
-          <%# progress bar %>
-          <div class="progress" role="progressbar" aria-label="Success example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
-            <div class="progress-bar  text-dark" style="width: <%= (@event.current_amount / @event.goal_amount) * 100 %>%"></div>
-          </div>
-
-          <div class="d-flex justify-content-between p-3">
-            <div><h6>Current Donation: <%= @event.current_amount.to_i %>€</h6></div>
-            <div><h6>Donation Goal: <%= @event.goal_amount.to_i %>€</h6></div>
-          </div>
-        <%# // progress bar %>
-
-        <%# event title %>
-        <div class=" d-flex justify-content-center mt-3">
-          <div class="ms-3"><h3><%= @event.name%> </h3></div>
-        </div>
-        <%# //event title %>
-
-                <%# event date: %>
-        <div class=" d-flex justify-content-center mt-3">
-         <p><strong><i class="fa-solid fa-calendar-days"></i></strong> <%= @event.opening_date %></p>
-        </div>
-        <%# //event date %>
-
-        <%# event description: %>
-        <div class=" d-flex justify-content-center mt-3">
-          <p><strong>Description: </strong> <%= @event.description %>.</p>
-        </div>
-        <%# //event description %>
-
-        <%# event location: %>
-        <div class=" d-flex justify-content-center mt-3">
-          <p><strong><i class="fa-solid fa-location-dot"></i></strong> <%= @event.address %></p>
-        </div>
-        <%# //event location %>
-
-        <%# event organiser: %>
-        <div class=" d-flex justify-content-center mt-3">
-          <p><strong>Event organised by:</strong> <%= @event.user.first_name.capitalize %> <%= @event.user.last_name.capitalize %></p>
-        </div>
-        <%# //event location %>
-  </div>
-
-  <%# //event map %>
-  <div style="width: 100%; height: 250px; margin-bottom:20px;"
-    class = "col events-show-card shadow-sm m-1"
-      data-controller="map"
-      data-map-markers-value="<%= @markers.to_json %>"
-      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-  </div>
-
-  <hr>
-
-<%# donation form %>
-
-  <% if flash[:alert] %>
-    <div class="alert alert-danger">
-      <%= flash[:alert] %>
-    </div>
-  <% end %>
-
-  <%= simple_form_for @donation, url: donations_path do |f| %>
-    <%= f.hidden_field :event_id, value: @event.id %>
-    <%= f.input :contribution, label: 'Donation amount', hint: '(type in desired donation amount)', required: true %>
-    <%= f.submit "Donate Now!", class: "nav-link text-light login-button mx-3" %>
-  <% end %>
-
-  <hr>
-
-    <%# join event %>
-    <div data-controller="joinbtn" class ="d-flex justify-content-center">
-      <%= simple_form_for [@event, @attendee] do |f| %>
-          <% if @existed_attendee %>
-            <%= f.submit "Joined", class: "nav-link text-light login-button btn btn-sm btn-primary btn-block mt-2 rounded-pill disabled" %>
-          <% else %>
-            <%= f.submit "Join", class:   "nav-link text-light login-button btn btn-sm btn-primary btn-block mt-2 rounded-pill d-flex justify-content-center" %>
-          <% end %>
-      <% end %>
-    </div>
-
-    <h3 class= "d-flex justify-content-center mt-3">Attendees:</h3>
-
-    <div class="flexAttendeesParent" >
-      <% if @attendees.size > 0 %>
-        <% @attendees.each do |user|  %>
-        <div class="flexAttendeesChild">
-        <% attendee = @users.find(user.user_id) %>
-        <button class="rounded-pill" style="margin:20px;"><%= attendee.first_name %> <%= attendee.last_name %></button>
-        <% end %>
-      </div>
-      <% else %>
-      <h6 class = "d-flex justify-content-center">No atteendes on this event yet...</h6>
-      <% end %>
-    </div>
-
-  <hr>
-
-</div>
-
-<%# ---------------- new sec ----------------- %>
-
 
   <div class="container">
 
-      <div class="events-show-card shadow-sm m-1">
+      <div class=" m-1">
           <%# progress bar %>
           <div class="progress" role="progressbar" aria-label="Success example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
             <div class="progress-bar  text-dark" style="width: <%= (@event.current_amount / @event.goal_amount) * 100 %>%"></div>
@@ -121,41 +17,41 @@
       </div>
         <%# // progress bar %>
 
-      <div class="raw d-flex">
-        <div class="col-7 bg-info p-3">
+      <div class="raw d-flex mt-5">
+        <div class="col-7 p-3 shadow-sm me-3">
           <div class="mt-3">
             <div><h3><%= @event.name%> </h3></div>
           </div>
             <%# //event title %>
 
                 <%# event date: %>
-          <div class="  mt-3">
-            <p><strong><i class="fa-solid fa-calendar-days"></i></strong> <%= @event.opening_date %></p>
+          <div class="  mt-5">
+            <p><span class="text-black"><strong><i class="fa-solid fa-calendar-days me-2"></i></strong></span> <%= @event.opening_date %></p>
           </div>
           <%# //event date %>
 
           <%# event description: %>
           <div class="   mt-3">
-            <p><strong>Description: </strong> <%= @event.description %>.</p>
+            <p><span class="text-black"><strong>Description: </strong></span> <%= @event.description %>.</p>
           </div>
           <%# //event description %>
 
           <%# event location: %>
           <div class="  mt-3">
-            <p><strong><i class="fa-solid fa-location-dot"></i></strong> <%= @event.address %></p>
+            <p><span class="text-black"><strong><i class="fa-solid fa-location-dot me-2"></i></strong></span> <%= @event.address %></p>
           </div>
           <%# //event location %>
 
           <%# event organiser: %>
           <div class=" mt-3">
-            <p><strong>Event organised by:</strong> <%= @event.user.first_name.capitalize %> <%= @event.user.last_name.capitalize %></p>
+            <p><span class="text-black me-1"><strong>Event organised by:</strong></span><%= @event.user.first_name.capitalize %> <%= @event.user.last_name.capitalize %></p>
           </div>
           <%# //event location %>
         </div>
 
 
-        <div class="col-5">
-          <div class="donation-sec bg-danger p-3">
+        <div class="col-5 shadow-sm">
+          <div class="donation-sec p-3">
             <% if flash[:alert] %>
               <div class="alert alert-danger">
                 <%= flash[:alert] %>
@@ -169,11 +65,11 @@
               <% end %>
           </div>
 
-
           <%# attendees %>
-            <div class="attendees-sec bg-success p-3">
-              <h4>Attendees:</h4>
-              <div class="flexAttendeesParent">
+          <div class="attendees-sec p-3">
+            <h4>Attendees:</h4>
+            <div class="flexAttendeesParent" >
+
                 <% if @attendees.size > 0 %>
                   <% @attendees.last(2).reverse.each do |user| %>
                     <div class="flexAttendeesChild d-flex mb-2">
