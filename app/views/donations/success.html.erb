@@ -1,0 +1,110 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="container">
+
+  <%# <%= if @donation.status == "succeeded" %>
+    <%# Donation amount %>
+    <h2>Payment Confirmation</h2>
+    <div class="description">
+      <p>Thank you for your generous donation! Your support will make a real difference in the lives of those in need. We deeply appreciate your kindness and commitment to our cause.</p>
+    </div>
+    <br>
+
+    <%# Order details %>
+
+    <div class="checkout-container">
+      <div class="checkout-details">
+        <h2>Order Details</h2>
+        <% if @donation.event_id? %>
+          <p>You have donated to
+          <strong><%= @donation.event.user.first_name %>'s</strong> event <strong><%= @donation.event.name %></strong></p>
+        <% end %>
+        <% if @donation.vault_id? %>
+          <p>You have donated to Paybefore's <strong><%= @donation.vault.name %></strong> vault</p>
+        <% end %>
+
+        <hr>
+        <div style="display: flex; justify-content: space-between;">
+          <div>
+            <p>Order Number:</p>
+          </div>
+          <div style="text-align: right;">
+            <p>#001337<%= @donation.id %></p>
+          </div>
+        </div>
+        <div style="display: flex; justify-content: space-between;">
+          <div>
+            <p>Donation Amount:</p>
+          </div>
+          <div style="text-align: right;">
+            <p>€<%= @donation.contribution %>0</p>
+          </div>
+        </div>
+        <hr>
+        <div style="display: flex; justify-content: space-between;">
+          <div>
+            <p><strong>Total:</strong></p>
+          </div>
+          <div style="text-align: right;">
+            <p><strong>€<%= @donation.contribution %>0</strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <%# if donation status is not successful %>
+    <%# <% else %>
+    <%# <% end %>
+  <%# // order details %>
+
+<div class="success-buttons-container">
+
+<%# if donating to event: %>
+
+  <% if @donation.event_id? %>
+    <div class="successFlexParent">
+      <div class="rounded-pill vaultFlexChild">
+        <%= link_to event_path(@donation.event), class: "text-decoration-none", style: "width:100%; display:block;" do %>
+          <button style="width:100%;" class="border rounded-pill dashboard-button dashboard-button-text">
+            <span class="success-button-text">View event</span>
+            <svg class="dashboard-button-arrow" xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12 5l7 7-7 7"/></svg>
+          </button>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+<%# //if donating to event %>
+
+<%# if donating to a vault %>
+
+<% if @donation.vault_id? %>
+    <div class="successFlexParent">
+      <div class="rounded-pill vaultFlexChild">
+        <%= link_to vault_path(@donation.vault), class: "text-decoration-none", style: "width:100%; display:block;" do %>
+          <button style="width:100%;" class="border rounded-pill dashboard-button dashboard-button-text">
+            <span class="success-button-text">View vault</span>
+            <svg class="dashboard-button-arrow" xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12 5l7 7-7 7"/></svg>
+          </button>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+
+<%# //if donating to a vault %>
+
+  <div class="successFlexParent">
+    <div class="rounded-pill vaultFlexChild">
+      <%= link_to dashboard_path, class: "text-decoration-none", style: "width:100%; display:block;" do %>
+        <button style="width:100%;" class="border rounded-pill dashboard-button dashboard-button-text">
+          <span class="success-button-text">View donations dashboard</span>
+          <svg class="dashboard-button-arrow" xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12 5l7 7-7 7"/></svg>
+        </button>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+</div>

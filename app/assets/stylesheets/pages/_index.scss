@@ -1,0 +1,36 @@
+// Import page-specific CSS files here.
+@import "home";
+@import "dashboard";
+@import "checkout";
+@import "newEventForm";
+
+
+.indexFlexContainerParent{
+  display:flex;
+}
+
+.indexFlexContainerChild{
+color: $main-violet;
+width:150px;
+height:150px;
+margin: 20px;
+padding: 10px;
+border-radius: 20px;
+
+}
+
+// .mainIndexCard .cardTitle{
+// background-color: #eeeeee4b;
+// backdrop-filter: blur(10px);
+// }
+// .mainIndexCardContent {
+//   height: 50%;
+// }
+
+.vaultShadowDiv:hover{
+  box-shadow: 2px 12px 12px  rgb(238, 238, 238);
+  border-radius: 15px;
+}
+.card-vaults-minimized{
+  height:130px;
+}

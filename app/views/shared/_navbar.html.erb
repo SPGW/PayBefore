@@ -1,0 +1,43 @@
+
+<nav class="navbar navbar-expand-lg fixed-top">
+  <div class="container">
+    <%# <a class="navbar-brand me-auto" href="#">PayBefore</a> %>
+       <div class="navbar-brand me-auto ">
+            <%= link_to root_path, class: "text-decoration-none" do %>
+            <h4>PayBefore</h4>
+      </div>
+    <% end %>
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">PayBefore</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+
+      <div class="offcanvas-body">
+        <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
+
+          <li class="nav-item">
+          <%= link_to "Home", root_path, class: "nav-link active mx-lg-2" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Events", events_path, class: "nav-link active mx-lg-2 "  %>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <% if user_signed_in? %>
+    <div class="d-flex ">
+    <%= link_to "Profile", dashboard_path , class: "nav-link text-light login-button mx-3" %>
+    <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "nav-link text-light login-button" %>
+    </div>
+
+    <% else %>
+    <%= link_to "Login", new_user_session_path, class: "nav-link text-light login-button" %>
+    <button class="navbar-toggler pe-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+      <%# <span class="navbar-toggler-icon"></span> %>
+    </button>
+    <% end %>
+  </div>
+</nav>

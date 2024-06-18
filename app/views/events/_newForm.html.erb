@@ -1,0 +1,40 @@
+<div class="container form-container">
+  <div class="form-section">
+    <h2>Create an event</h2>
+    <p>Create a new event! Connect with a compassionate community dedicated to helping your cause.</p>
+    <%= simple_form_for @event do |e| %>
+      <div class="form-group">
+        <%= e.input :name, hint: 'Give a descriptive title to your event' %>
+      </div>
+
+      <div class="form-group">
+        <%= e.input :description, hint: 'Describe your event and why you are raising money' %>
+      </div>
+
+      <div class="form-row">
+        <div class="col-md-6">
+          <%= e.input :address, hint: 'Where is your event located?' %>
+        </div>
+        <div class="col-md-6">
+          <%= e.input :opening_date, as: :string, input_html: { data: { controller: "datepicker" } }, hint: 'On what day will your event be held?' %>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <%= e.input :photo, as: :file, hint: 'Upload a photo for your event' %>
+        </div>
+        <div class="form-group col-md-6">
+          <%= e.input :vault_id, collection: @vaults, hint: 'Housing, Medical or Education', value_method: :id %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= e.input :goal_amount, hint: 'How much money you would like to raise?' %>
+      </div>
+
+      <%= e.submit 'Create Event', class: "new-form-submit nav-link text-light login-button" %>
+    <% end %>
+  </div>
+  <div class="image-section d-none d-md-block col-md-6"></div>
+</div>

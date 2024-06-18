@@ -1,0 +1,99 @@
+.parentDiv{
+  width:1300px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+//-----------------------------------------------CREATE EVENT BUTTON
+
+.createEventButton{
+  margin:5px 5px 0px 0px;
+}
+.createEventButton:hover{
+  box-shadow: 6px 6px $blue;
+  transition:1.5s;
+}
+
+// -------------------------------------------------VAULTS
+.vaultFlexParent{
+  width:100%;
+  display:flex;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.vaultFlexChild{
+  // background-color: white;
+  padding: 20px;
+  flex-grow:1;
+  text-align: center;
+}
+
+// -----------------------------------------------MAIN CARD DIV
+.indexGridContainer{
+  margin-top:25px;
+  border-radius:10px;
+  padding:5px;
+  // border: rgb(237, 237, 237) solid 1px;
+  display: inline-grid;
+  --min-grid-absolute-size: 12rem;
+  --max-grid-relative-size: 20%;
+  grid-template-columns: auto auto auto auto auto;
+
+}
+.mainIndexCard{
+ position:relative;
+ height:400px;
+ width:240px;
+ overflow: hidden;
+ border: rgb(225, 225, 225) solid 1px;
+ margin:8px;
+ border-radius: 12px;
+ background-color: rgb(206, 206, 206);
+ background-size: cover;
+ background-position: center;
+}
+
+.mainIndexCard:hover{
+  box-shadow: $main-violet 5px 5px 5px;
+  border-radius: 10px;
+  transition:1s;
+}
+
+#cardTitle{
+  font-size:80%;
+  background-color: rgba(255, 255, 255, 0.233);
+  padding:20px;
+  position:absolute;
+  top:70%;
+  height:200px;
+  backdrop-filter: blur(5px);
+}
+.mainIndexCardContent{
+  background-color: rgba(247, 248, 249, 0.312);
+  position: absolute;
+  top: 450px;
+  padding:20px;
+  height:600px;
+  font-size:60%;
+  backdrop-filter: blur(5px);
+}
+
+.mainIndexCard:hover .mainIndexCardContent{
+  transition:1.25s;
+  display:block;
+  top: 40%;
+}
+.mainIndexCard:hover #cardTitle{
+  transition:1.5s;
+  top: 0px;
+  display:block;
+}
+
+.mainIndexCard:focus{
+color:red
+}
+
+.eventIcon {
+  margin-right: 10px;
+}
