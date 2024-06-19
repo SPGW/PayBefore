@@ -1,46 +1,60 @@
-
-  <div class="header">
+<%# headder %>
+<div class="header">
   <div class="header-content">
-   <h1>Pay Before</h1>
-      <p class="element pt-5" data-controller="typed-text">
-      </p>
-       <div class="home-btn mt-5 d-flex justify-content-center align-items-center">
-          <%= link_to events_path, class: "text-decoration-none" do %>
-          <button class="border rounded-pill">
+    <h1>Pay Before</h1>
+    <p class="element pt-5" data-controller="typed-text"></p>
+    <div class="home-btn mt-5 d-flex justify-content-center align-items-center">
+      <%= link_to events_path, class: "text-decoration-none" do %>
+        <button class="border rounded-pill">
           <span>Events</span>
-          <svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12 5l7 7-7 7"/></svg></button>
-        <% end %>
-        </div>
-  </div>
-  </div>
-
-      <%# Mission %>
-      <div class="item-mission mb-5">
-        <div class=" item-about">
-          <h2>Mission</h2>
-          <p>
-          PayBefore is dedicated to help those who find themselves trapped in an endless downwards spiral of <strong class="text-dark">financial obligations.</strong> <br><br>
-          A large percent of the population worldwide struggle with unpaid bills at the end of the month; not due to lack of effort but simply because of external circumstances. The core mission of this project is to help those who need help the most by building a <strong class="text-dark"> bridge between anonymous people.</strong> <br><br>
-
-          PayBefore helps anyone who wants to regain control of their <strong class="text-dark">financial well-being</strong> with donations from strangers.</strong>
-          <br><br>
-          <strong class="text-dark">Everyone needs help </strong>at some point, just  not at the same time. Help someone in need today.<br><br>
-          </p>
-        </div>
-      </div>
-
-
-    <%# Vaults %>
-  <div class="container mt-5">
-      <%= render partial: "vaults/vaults" %>
+          <svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12 5l7 7-7 7"/></svg>
+        </button>
+      <% end %>
     </div>
+  </div>
+</div>
+
+<%# Mission %>
+<div class="item-mission mb-5">
+  <div class="container item-about">
+    <h2>Mission</h2>
+    <p>
+    PayBefore is dedicated to help those who find themselves trapped in an endless downwards spiral of <strong class="text-dark">financial obligations.</strong> <br><br>
+    A large percent of the population worldwide struggle with unpaid bills at the end of the month; not due to lack of effort but simply because of external circumstances. The core mission of this project is to help those who need help the most by building a <strong class="text-dark"> bridge between anonymous people.</strong> <br><br>
+
+    PayBefore helps anyone who wants to regain control of their <strong class="text-dark">financial well-being</strong> with donations from strangers.</strong>
+    <strong class="text-dark">Everyone needs help </strong>at some point, just  not at the same time. Help someone in need today.<br><br>
+    </p>
+  </div>
+</div>
+
+
+<%# Vaults %>
+<%# <div class="container mt-5">
+  <%= render partial: "vaults/vaults" %>
+<%# </div> %>
+
+<%# NEW VAULT %>
+
+<%# vault title %>
+<div class="container vault-item text-center">
+  <h2 class="p-3">Vaults</h2>
+  <p class="p-5">Vaults are our way of collecting and distributing general donations. Donate to a vault you care about and your contribution will be distributed to those who need.</p>
+</div>
+
+<%# vault icons %>
+<div class="container">
+  <div class="row justify-content-center p-5">
+    <% @vaults.each do |vault| %>
+      <%= render partial: 'vaults/vaults', locals: { vault: vault } %>
+    <% end %>
+  </div>
+</div>
 
       <%# Ticker %>
-    <div style="" class="d-flex row p-5 justify-content-center  pt-1 tickerFlexParent">
-
-       <div  class="tickerFlexChild col d-flex justify-content-evenly">
-       <div>
-        <h3 class="fw-bold fs-5">Total amount raised:</h3>
+    <div class="d-flex row p-5 justify-content-center  pt-1 tickerFlexParent">
+      <div class="tickerFlexChild col d-flex justify-content-evenly">
+      <div>
         <% total_amount_raised = 0 %>
         <% @events.each do |e| %>
           <% total_amount_raised += e.current_amount %>
@@ -48,21 +62,18 @@
         <% @vaults.each do |v| %>
           <% total_amount_raised += v.current_amount_vault %>
         <% end %>
-       </div>
-       <div>
-        <h3 class="fs-5"><%= total_amount_raised.to_i %>€</h3>
-       </div>
-       </div>
+      </div>
+      <div>
+        <h3 class="fs-5"><strong>Total amount raised: </strong>€<%= total_amount_raised.to_i %></h3>
+      </div>
+      </div>
 
         <div class="tickerFlexChild col d-flex justify-content-evenly">
-        <% total_amount_donations = 0 %>
-        <h3 class="fw-bold fs-5">Number of donations:</h3>
-        <h3 class="fs-5"><%= @donations.size %></h3>
+        <h3 class=" fs-5"><strong>Number of donations:</strong> <%= @donations.count %></h3>
         </div>
 
-       <div class="tickerFlexChild col d-flex justify-content-evenly">
-       <h3 class="fw-bold fs-5">Events completed:</h3>
-       <h3 class="fs-5"><%= @successful_events.size %></h3>
+      <div class="tickerFlexChild col d-flex justify-content-evenly">
+      <h3 class="fs-5"><strong>Events completed:</strong> <%= @successful_events.count %></h3>
       </div>
     </div>
 
